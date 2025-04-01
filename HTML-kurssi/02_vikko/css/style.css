@@ -1,0 +1,28 @@
+/* Kommentti */
+
+body {
+	background-color: rgb(160, 231, 231);
+	
+	font-family: Arial, Helvetica, sans-serif;
+
+}
+
+#paragraph {
+	color: blue;
+}
+
+.nav-list{
+	color: blueviolet;
+}
+
+h1 {
+	color: brown;
+	font-weight: 700;
+	font-style: italic;
+	font-size: 40px;
+}
+
+.main-img {
+	width:300px;
+}
+
