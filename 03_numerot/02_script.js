@@ -114,6 +114,38 @@ function convertNumberToString() {
    console.log(num1 + num2); // NaN tuloste
 
    // tehtava numerot_09
-   
+
+   let userInput = "25.75 omenaa";
+   let numero = parseFloat(userInput);
+   numero = numero.toFixed(1);
+   console.log("Result: ", numero);
+
+   // tehtava numerot_10
+
+   let num = 5.67
+   let numRound = Math.round(num); 
+   let numFloor = Math.floor(num); 
+   let numCeil = Math.ceil(num); 
+   console.log("pyöristetty:", numRound);
+   console.log("lattia:", numFloor);
+   console.log("katto:", numCeil);
+
+   // tehtava numerot_11
+
+   let randomNumero = Math.random();
+   console.log("Random numero: ", randomNumero);
+   let numeroFloor = Math.floor(randomNumero*10);
+   console.log("Arvottu lukusi on: ", numeroFloor);
+
+   // tehtava numerot_12
+
+   let a = 12;
+   let b = 7;
+   let c = 20;
+   let maxNum = Math.max(a,b,c);
+   let minNum = Math.min(a,b,c);
+   console.log("The largest number is ", maxNum);
+   console.log("The smallest number is ", minNum);
+
 
 
