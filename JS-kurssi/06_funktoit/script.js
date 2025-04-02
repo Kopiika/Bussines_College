@@ -11,6 +11,15 @@ let num1 = 5;
 let num2 = 6;
 console.log(`Arvojen ${num1} + ${num2} = ${num1 + num2}`);
 
+function greeting(name= "Guest", name2){
+	return `Hello ${name} and ${name2}`;
+}
+console.log(greeting("Leevi", "Toinen"));
+
+
+//TEHTAVAT
+//--------------------------------------------
+
 // funktiot tehtava 01
 function add(a, b) {
 	return a+b;
