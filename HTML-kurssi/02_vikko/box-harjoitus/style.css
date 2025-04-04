@@ -1,0 +1,53 @@
+/* reset margin, padding */
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+
+
+body{
+	background-color: bisque;
+}
+
+header{
+	background: #333;
+	padding: 25px;
+	color: white;
+}
+
+main{
+	padding: 10px;
+}
+
+div{
+	background: rgb(90, 90, 218);
+	height: 200px;
+	width: 200px;
+	margin: 0 10px 10px 0;
+	display: inline-block;
+
+}
+
+.first-box{
+border: 5px dotted white;
+}
+
+.second-box{
+border: 7px dashed rgb(242, 239, 19);
+border-style: ;
+}
+
+.third-box{
+border: 10px double rgb(7, 7, 7);
+}
+
+.firth-box{
+	border: 17px solid rgb(210, 36, 152);
+}
+
+.box-6{
+	border-style: groove;
+	border-width: 10px;
+	border-color: white blue red yellow;
+}
