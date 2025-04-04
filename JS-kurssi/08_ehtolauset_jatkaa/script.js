@@ -132,5 +132,3 @@ console.log(rainAdvice(false));
 // vapaaehtoinen tehtava
 
 
-/* Tämä tehtävä on vapaaehtoinen.
-
