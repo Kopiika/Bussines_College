@@ -1,6 +1,5 @@
-/* Kommentti */
 
-body {
+ body {
 	background-color: rgb(160, 231, 231);
 	
 	font-family: Arial, Helvetica, sans-serif;
@@ -24,5 +23,22 @@ h1 {
 
 .main-img {
 	width:300px;
+} 
+
+
+/* padding: 10px 20px 15px   17px 
+				top right bottom left
+	padding: 20px       10px
+	        top/bottom left/right
+	padding: 10    20        15
+				top left/right bottom
+*/
+
+	/* .block{
+	background-color: rgb(93, 37, 146);
 }
+
+.inline{
+	background-color: rgb(16, 167, 58);
+} */
 

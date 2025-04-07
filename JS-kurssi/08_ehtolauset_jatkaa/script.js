@@ -117,6 +117,20 @@ console.log(planAdventure(true, true, false)); // Hyvä päivä, mutta ei täyde
 console.log(planAdventure(true, true)); //Hyvä päivä, mutta ei täydellinen.
 console.log(planAdventure(false, true, true)); //Ehkä joku toinen päivä.
 
+function planAdventure1(isWeekend, isSunny, likesFoxes) {
+	if (isWeekend && isSunny && likesFoxes) {
+		return  "Täydellinen päivä kettuseikkailulle!";
+	} else if (isWeekend && isSunny){
+		return "Hyvä päivä, mutta ei täydellinen.";
+	} else {
+		return "Ehkä joku toinen päivä."
+	}
+}
+
+console.log(planAdventure1(true, true, true)); //Täydellinen päivä kettuseikkailulle!
+console.log(planAdventure1(true, true, false)); // Hyvä päivä, mutta ei täydellinen.
+console.log(planAdventure1(true, true)); //Hyvä päivä, mutta ei täydellinen.
+console.log(planAdventure1(false, true, true)); //Ehkä joku toinen päivä.
 
 
 // tehtava 14
@@ -131,4 +145,35 @@ console.log(rainAdvice(false));
 
 // vapaaehtoinen tehtava
 
+
+// tehtava numerot_11
+
+function askQuestion() {
+	// Pyydetään käyttäjää esittämään kysymys
+	let userQuestion = prompt("Esitä kysymys 8-pallolle (kyllä/ei kysymys)");
+
+	// Jos käyttäjä ei kirjoita mitään
+	if (!userQuestion) {
+		 alert("Et esittänyt kysymystä!");
+		 return;
+	}
+
+	// Mahdolliset 8-pallon vastaukset
+	const answers = [
+		 "Kyllä.",
+		 "Ei.",
+		 "En osaa sanoa.",
+		 "Tulevaisuus on epäselvä.",
+		 "Voi olla.",
+		 "Ei ole varmaa.",
+		 "Ehdottomasti!",
+		 "Ei ole todennäköistä."
+	];
+
+	// Valitaan satunnainen vastaus
+	const randomAnswer = answers[Math.floor(Math.random() * answers.length)];
+
+	// Näytetään vastaus sivulla
+	document.getElementById("answer").innerText = `8-Pallo sanoo: ${randomAnswer}`;
+}
 

@@ -17,12 +17,6 @@ function convertNumberToString() {
   
   convertStringToNumber();
   
-  /* 
-  let a = 10;
-  let b = "20"; 
-  b = Number.parseInt(b, 10); 
-  let summa = a + b; 
-  */
   
   //tehtava numerot_02 (fahrenheitToCelsius)
   
