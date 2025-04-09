@@ -4,6 +4,19 @@ body{
 	background-color: rgb(206, 188, 211);
 	box-sizing: border-box;
 }
+
+/* reset ul style */
+nav ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+nav li{
+	display: inline;
+	margin: 5px;
+}
+
 h1, 
 h2{
 	font-family: "Kanit", sans-serif;
@@ -24,3 +37,4 @@ p{
 	background: rgb(34,193,195);
 background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
 }
+

@@ -7,7 +7,7 @@
 	margin: 0;
 	border: 0;
 	box-sizing: border-box;
-	font-family: "Roboto", sans-serif;
+	font-family: "Roboto", sans-serif; 
 }
 
 *::before,
@@ -45,87 +45,100 @@ body {
 }
 
 header{
-	position: fixed;
-	top: 0;
-	left: 0;
 	width: 100%;
-	padding: 35px 12%;
-	margin-bottom: 20px;
+	padding: 20px;
+	margin-bottom: 10px;
 	border-bottom: 2px solid rgb(128, 125, 125); 
-	background-color: #888; /*#555*/
+	box-shadow: 10px 5px 5px gray ;
+	background-color:teal;
+	color: white;
+	font-size: 40px
+}
+
+h1{
+	text-shadow: 2px 2px 3px rgb(5, 5, 5);
+}
+
+h2,
+h3{
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+.introduction {
+	font-size: 18px;
+	margin: 20px 0;
+	padding: 15px;
+	background-color: white;
+	box-shadow: 25px -25px #989b9b;
+	width: 25%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.skills{
+	margin: 20px 0;
+	padding: 15px;
+	background-color: teal; 
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+	color: white;
+	text-shadow: 1px 1px 2px rgb(5, 5, 5);
 }
 
 main{
 	padding: 20px;
 }
 
-.about>img{
-	max-width: 200px;
-	border-radius: 10%;
-}
-
-
-/* Esittelykappaleen tyyli */
-.introduction p {
-	margin: 20px 0;
-	padding: 15px;
-	background-color: #f2f2f2;
-	width: 25%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-/* Harrastus- tai taitolistan tyyli */
-ul {
-	margin: 20px 0;
-	padding: 15px;
-	background-color: #e7e7e7; /* Vaalean harmaa taustaväri */
-	width: 500px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-/* Tietoa minusta -osion tyyli */
-.img {
-	max-width: 500px;
-	float: left;
-	margin-right: 20px;
-	width: 150px;
-	height: auto;
-}
-
-.about p {
-	padding: 10px;
-	margin: 10px;
-}
-
-.about {
+.about{
+	display: flex;
+	background-image: url("background-image");
+	background-size: cover;
 	border: 1px solid #ccc;
 	background-color: #fafafa;
 	padding: 20px;
-	margin-top: 20px;
+	margin-bottom: 20px;
 }
+
+img {
+	float: left;
+	max-width: 150px;
+	height: auto;
+	box-shadow: 10px 5px 5px gray;
+	border-radius: 10%;
+}
+
+.about__text{
+	padding: 20px;
+	margin-left: 30px;
+	font-size: 18px;
+}
+.about p {
+	margin-bottom: 10px;
+}
+
 
 /* Footer */
 footer {
 	text-align: center;
 	margin: auto;
 	padding: 20px;
-	background-color: #4CAF50; /* Täydentää headerin väriä */
+	background-color: teal; 
 	color: white;
+	
 }
 
-/* Taustaväri koko sivulle */
+footer p{
+	margin-bottom: 10px;
+}
+
+
 body {
-	background: linear-gradient(to right, #f0f0f0, #d3d3d3); /* Hillitty liukuväri */
+	background: linear-gradient(to right, #f0f0f0, #d3d3d3); 
 }
 
-/* Taustakuva "Tietoa minusta" -osioon */
-.section {
-	background-image: url('path-to-image.jpg'); /* Lisää polku kuvaasi */
-	background-size: cover;
-	background-position: center;
-}
+
 
 
 
