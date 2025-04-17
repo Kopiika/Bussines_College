@@ -1,3 +1,19 @@
+const correctPassword = 1234;
+
+function checkPassword (){
+	const passwordInput = document.getElementById("passwordInput").value;
+	const errorMessage = document.getElementById("error-message");
+	if (passwordInput === correctPassword) {
+		// Якщо пароль вірний, ховаємо модальне вікно та показуємо форму
+		document.getElementById("passwordModal").style.display = "none";
+		document.getElementById("bankApp").style.display = "block";
+  } else {
+		// Якщо пароль невірний, виводимо помилку
+		errorMessage.textContent = "Väärä PIN-koodi. Yritä uudelleen.";
+  }
+}
+
+
 let balance = 0;
 
 

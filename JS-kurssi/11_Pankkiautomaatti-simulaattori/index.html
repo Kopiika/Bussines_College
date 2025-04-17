@@ -8,10 +8,20 @@
 	<title>Pankkiautomaatti-simulaattori</title>
 </head>
 <body>
+<!-- Модальне вікно для введення пароля -->
+<div id="passwordModal" class="modal">
+	<div class="modal-content">
+		<h2>Syötä PIN-koodi</h2>
+		<input type="password" id="passwordInput" placeholder="PIN-koodi">
+		<button onclick="checkPassword()">Vahvista</button>
+		<p id="error-message" style="color: red;"></p>
+	</div>
+</div>
+
 <div class="wrapper">
 		<h1>Pankkiautomaatti-simulaattori</h1>
 	
-		<div class="balance">
+		<div class="balance__section">
 			Oma saldo: <span id="balanceAmount">0</span> euro
 		</div>
 
