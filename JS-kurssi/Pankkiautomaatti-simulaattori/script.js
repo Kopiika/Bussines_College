@@ -1,4 +1,4 @@
-const correctPassword = 1234;
+/*const correctPassword = 1234;
 
 function checkPassword (){
 	const passwordInput = document.getElementById("passwordInput").value;
@@ -11,7 +11,7 @@ function checkPassword (){
 		// Якщо пароль невірний, виводимо помилку
 		errorMessage.textContent = "Väärä PIN-koodi. Yritä uudelleen.";
   }
-}
+}*/
 
 
 let balance = 0;

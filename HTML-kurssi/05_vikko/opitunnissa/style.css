@@ -1,0 +1,16 @@
+h1{
+	font-size: 24px;
+}
+
+.container{
+	width: 80%;
+}
+
+h2{
+	font-size: 2rem;
+}
+
+.box{
+	height: 50vh;
+	background-color: rgb(127, 214, 255);
+}

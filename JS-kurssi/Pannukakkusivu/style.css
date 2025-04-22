@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
+
+body {
+	background-color: #ffffff;
+	color: rgb(63, 137, 139);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	min-height: 100vh;
+	overflow: hidden;
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.2rem;
+ }
+ 
+ .container {
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	width: 100vw;
+ }
+ 
+ .image-container {
+	position: relative;
+	flex: 1;
+	min-height: 100vh;
+ }
+ 
+ .image-container img {
+	object-fit: cover;
+	width: 100%;
+	height: 100vh;
+ }
+ 
+ .form-container {
+	flex: 1;
+	padding: 50px;
+	min-height: 100vh;
+	overflow-y: auto;
+ }
+ 
+ .price-banner {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	background-color: #d17b49;
+	color: white;
+	border-radius: 50%;
+	width: 100px;
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+ }
+ 
+ h3 {
+	margin-top: 15px;
+ }
+ 
+.price__display{
+	margin-top: 15px;
+	background-color: rgb(63, 137, 139);
+	color: #ffffff;
+	font-weight: 600;
+	display: inline-block;
+	padding: 10px;
+	border-radius: 5px;
+}
+
+.price__display:hover{
+	box-shadow: 1px 4px 5px rgb(20, 39, 40);
+	cursor: pointer;
+}
+
+ input[type="checkbox"] {
+	margin-right: 5px;
+ }
+ 
+ select,
+ label {
+	display: block;
+	margin-top: 10px;
+	color: rgb(63, 137, 139);
+ }
+
+ .price-change {
+	animation: elegantFade 0.6s ease;
+	box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+	border-radius: 8px;
+ }
+ 
+ @keyframes elegantFade {
+	0% {
+	  transform: scale(1);
+	  opacity: 1;
+	}
+	40% {
+	  transform: scale(1.2);
+	  opacity: 0.85;
+	}
+	100% {
+	  transform: scale(1);
+	  opacity: 1;
+	}
+ }
