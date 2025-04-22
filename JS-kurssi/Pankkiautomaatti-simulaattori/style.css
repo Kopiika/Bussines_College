@@ -79,9 +79,9 @@
 	background-color: #2575fc;
 }
 
-
-
-
+#bankApp {
+	display: none;
+ }
 
  body{
 	background: #ffffff;
