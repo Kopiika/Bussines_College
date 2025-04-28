@@ -8,7 +8,7 @@
   <body>
     <div class="container">
       <div class="image-container">
-        <img src="image/pancake.jpg" alt="Delicious pancakes" />
+        <img src="image/pancake.jpg" alt="Delicious pancakes"/>
         <div class="price-banner"><span id="totalPrice">5€</span></div>
       </div>
 
@@ -19,6 +19,7 @@
           <!-- Asiakkaan nimi -->
           <label for="customerName">Sinun nimesi:</label>
           <input type="text" id="customerName" placeholder="Enter your name" />
+          <div id="customerNameCheck"></div>
 
           <!-- Pannukakun tyyppi -->
           <label for="type">Valitse pannukakun tyyppi:</label>
@@ -50,7 +51,6 @@
             ><input type="checkbox" class="extra" data-price="3" /> Jäätelö +
             3€</label
           >
-			 <div class="price__display">Kokonaishinta: <span id="totalPriceDisplay">5€</span></div>
 
           <!-- Toimitustapa -->
           <h3>Choose delivery method:</h3>
@@ -97,6 +97,21 @@
         </div>
       </div>
     </div>
+
+    <!-- Модальне вікно -->
+<div id="orderModal" class="modal">
+  <div class="modal-content">
+    <span id="closeModal" class="close">&times;</span>
+
+    <h3>Tilauksen yhteenveto</h3>
+    <p id="modalSummaryText">Tietosi tulevat tähän.</p>
+
+    <div class="modal-buttons">
+      <button id="confirmOrder">Tilaa</button>
+      <button id="editOrder">Muokkaa tilausta</button>
+    </div>
+  </div>
+</div>
 
     <script src="script.js"></script>
   </body>

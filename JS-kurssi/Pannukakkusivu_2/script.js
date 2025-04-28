@@ -1,3 +1,5 @@
+
+
 const form = document.getElementById("pancakeForm");
 const totalPrice = document.getElementById("totalPrice");
 const totalPriceDisplay = document.getElementById("totalPriceDisplay");
@@ -27,7 +29,7 @@ form.addEventListener("change", (event) => {
 		}
 	}
 	updatePrice();
-   clearSummary();//очищаємо попередній підсумок
+  clearSummary();//очищаємо попередній підсумок
 });
 
 function updatePrice() {
@@ -61,11 +63,14 @@ function updatePrice() {
 
   // Додаємо клас для анімації
   totalPrice.classList.add('price-change');
+  totalPriceDisplay.classList.add('price-change');
   totalPrice.textContent = `${price}€`;
+  totalPriceDisplay.textContent = `${price}€`;
 
   // Після анімації видаляємо клас
   setTimeout(() => {
     totalPrice.classList.remove('price-change');
+    totalPriceDisplay.classList.remove('price-change');
   }, 600);
 }
 
@@ -75,22 +80,27 @@ document.getElementById('seeOrder').addEventListener('click', () => {
 
   // 🔍 Перевірка: чи введене ім’я
   if (name === '') {
-    alert('Ole hyvä ja syötä nimesi! (Будь ласка, введіть ім’я)');
+    const errorMessage = document.getElementById("customerNameCheck");
+    errorMessage.textContent= 'Ole hyvä ja syötä nimesi!';
+    // Зникає через 3 секунди (3000 мс)
+    setTimeout(() => {
+      errorMessage.textContent = '';
+    }, 3000);
     return;
   }
 
   const typeSelect = document.getElementById('type');
   const pancake = typeSelect.options[typeSelect.selectedIndex].textContent;
   const delivery = document.querySelector('input[name="delivery"]:checked').parentElement.textContent.trim();
-  const price = totalPriceSpan.textContent;
+  const price = totalPrice.textContent;
 
   orderSummary.innerHTML = `
-    <strong>Ім’я:</strong> ${name}<br>
-    <strong>Панкейк:</strong> ${pancake}<br>
-    <strong>Начинки:</strong> ${toppings.join(', ') || 'Немає'}<br>
-    <strong>Додатки:</strong> ${extras.join(', ') || 'Немає'}<br>
-    <strong>Доставка:</strong> ${delivery}<br>
-    <strong>Загальна ціна:</strong> ${price}
+    <strong>Nimi:</strong> ${name}<br>
+    <strong>Pannukakun tyyppi:</strong> ${pancake}<br>
+    <strong>Täytteet:</strong> ${toppings.join(', ') || 'ei'}<br>
+    <strong>Lisukkeet:</strong> ${extras.join(', ') || 'ei'}<br>
+    <strong>Toimitustap:</strong> ${delivery}<br>
+    <strong>Kokonaishinta:</strong> ${price}
   `;
 });
 
