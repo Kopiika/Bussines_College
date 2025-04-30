@@ -1,0 +1,26 @@
+@import url("reset.css");
+
+
+/*color: rgb(63, 137, 139) 
+rgb(223, 222, 220)
+rgb(20, 31, 48)
+rgb(32, 40, 58)
+*/
+body{
+	font-family: "Inter", sans-serif;
+	font-size: 18px;
+	color: #ffffff;
+	background-color: rgb(32, 40, 58);
+}
+
+.wrapper{
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+	overflow: clip;
+}
+
+.wrapper >main{
+	flex-grow: 1;
+}
+

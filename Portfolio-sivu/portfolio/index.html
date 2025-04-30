@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Space+Grotesk:300,regular,500,600,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css">
+  <title>My Portfolio</title>
+</head>
+<body>
+  <div class="wrapper">
+  	<!-- Header -->
+	  <header class="header">
+	    <div class="header__container">
+	    	<a href="#" class="header__logo"> Eleonora Kopiika</a>
+			 <nav class="header__menu menu">
+				<ul class="menu__list">
+					<li><a href="menu__link">About Me</a></li>
+				</ul>
+				<ul class="menu__list">
+					<li><a href="menu__link">Portfolio</a></li>
+				</ul>
+				<ul class="menu__list">
+					<li><a href="menu__link">Contacts</a></li>
+				</ul>
+			 </nav>
+			 <div class="header__actions">
+				<!-- Menu Burger Button -->
+				<button class="icon__menu">
+					<span></span>
+				</button>
+				<!-- Dark/Light Theme -->
+				<button id="theme-toggle" aria-label="Toggle dark mode">
+					<span id="icon-sun">☀️</span>
+					<span id="icon-moon" style="display: none;">🌙</span>
+				</button>
+			 </div>
+	    </div>
+	  </header>
+	
+	<main class="page">
+		<!-- Hero Section -->
+		<section class="page__hero hero">
+			<div class="hero__container">
+				<h1 class="hero__title">Hi, I'm Eleonora Kopiika — I build websites that are clean, fast, and human-friendly.</h1>
+				<p class="hero__text">Junior web developer | Focused on frontend | UI/UX design entusiast | Lifelong learner ☕️</p>
+				<button class="hero__button button">See My Work</button>
+				<a href="" class="hero__link">GitHub</a>
+				<a href="" class="hero__link">LinkedIn</a>
+			</div>
+
+		 </section>
+
+		  <!-- About Section -->
+		  <section class="page__about about">
+		    <div class="about__container">
+		    	<h2 class="about__title">About Me</h2>
+			    <div class="about__text">
+			    	<p>I'm a junior frontend developer who recently transitioned into tech from a creative background. I love crafting intuitive, responsive websites and learning how small UI details make a big difference. Currently exploring React, accessibility, and clean code.</p>
+				    <p>When I'm not coding, you'll find me sketching, sipping tea, or organizing things that don't need organizing. 😄</p>
+		    </div>
+		    </div>
+		  </section>
+		
+		  <!-- Tech Stack -->
+		  <section id="stack">
+		    <h2>Tech Experience</h2>
+		    <h3>Comfortable with:</h3>
+		    <ul>
+		      <li>HTML5, CSS3, JavaScript (ES6+)</li>
+		      <li>Git & GitHub, Responsive Design, Flexbox, Grid</li>
+		      <li>VS Code, Figma</li>
+		    </ul>
+		    <h3>Learning now:</h3>
+		    <ul>
+		      <li>React.js, Accessibility, SASS, Git Workflows</li>
+		    </ul>
+		    <h3>Tech I'm excited about:</h3>
+		    <p>JAMstack, TypeScript, Astro, CSS Animation</p>
+		  </section>
+		
+		  <!-- My Values -->
+		  <section id="values">
+		    <h2>How I Work</h2>
+		    <ul>
+		      <li>✅ Clarity over cleverness – code that's easy to read and maintain.</li>
+		      <li>✅ Mobile-first approach – because everyone’s got a phone.</li>
+		      <li>✅ Continuous improvement – each project teaches me something new.</li>
+		      <li>✅ Accessibility & clean design – great UI should be usable by everyone.</li>
+		    </ul>
+		  </section>
+		
+		  <!-- Projects Section -->
+		  <section id="projects">
+		    <h2>Projects</h2>
+		    <div class="project-card">
+		      <h3>Responsive Portfolio Site</h3>
+		      <p><strong>Tools:</strong> HTML, CSS Grid, JS</p>
+		      <p>Built a mobile-first personal site with light/dark theme toggle and animated sections.</p>
+		      <p><a href="#">Code</a> | <a href="#">Live demo</a></p>
+		    </div>
+		    <!-- Repeat for more projects -->
+		  </section>	
+	</main>
+
+	  <!-- Contact Footer -->
+	  <footer class="footer">
+	   <div class="footer__container">
+	   	 <h2>Contact Me</h2>
+		    <p>Want to work together or say hi?</p>
+		    <p>Email me at <a href="mailto:email@example.com">email@example.com</a> or use the form below:</p>
+		    <form>
+		      <input type="text" placeholder="Your Name" required>
+		      <input type="email" placeholder="Your Email" required>
+		      <textarea placeholder="Your Message" required></textarea>
+		      <button type="submit">Send</button>
+		    </form>
+	   </div>
+	  </footer>
+  </div>
+</body>
+</html>
