@@ -155,6 +155,12 @@ const car = {
 	}
  }
 
+ //vaihtoehto 2
+ car.isElectric ? console.log ("This car is eco-friendly!") : console.log("This car runs on fuel.");
+
+ // vaihtoehto 3
+ console.log(car.isElectric ? "sähköauto" : "polttomoottiriauto");
+
  checkIfElectric (car);
 
 
