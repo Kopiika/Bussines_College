@@ -315,6 +315,12 @@ const cars = [
 	{ brand: "Audi", model: "RS7", horsepower: 591 }
  ];
 
+
+ function powerfulCar (cars) {
+	cars.reduce((max, ap) => {
+		
+	})
+ }
  function findPowerfulCar(cars) {
 	let powerfulCar = cars[0];
 
@@ -343,15 +349,13 @@ const airports = [
 	{ name: "Tokyo Narita", country: "Japani", flightsPerDay: 600 }
  ];
 
- const findBusiestAirport = (airports) =>{
-	let busiestAirport = airports[0];
-
-	airports.forEach(airport =>{
-		if (airport.flightsPerDay > busiestAirport.flightsPerDay){
-			busiestAirport = airport;
-		}
-	});
-	return busiestAirport;
+ function busiestAirport(list) {
+	//max — поточний "найкращий" об'єкт (тут: аеропорт з найбільшою кількістю рейсів на цей момент). 
+	// ap — поточний аеропорт у циклі
+	return list.reduce((max, ap) =>
+	  ap.flightsPerDay > max.flightsPerDay ? ap : max
+	);
  }
+ //Якщо в ap більше рейсів на день, ніж у max, то ми оновлюємо max значенням ap. Інакше залишаємо max без змін.
 
- console.log(findBusiestAirport(airports));
+ console.log(busiestAirport(airports));

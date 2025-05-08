@@ -1,0 +1,30 @@
+body[data-theme="dark"]{
+background: #122b12;
+}
+
+body[data-theme="light"]{
+	background: #66ee66;
+	}
+
+button {
+	background-color: blueviolet;
+	color: aliceblue;
+	cursor: pointer;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+header, div{
+	margin-bottom: 20px;
+}
+
+#value{
+	display: block;
+	padding: 5px;
+	text-align: center;
+	max-width: 70px;
+	border-style: solid;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+

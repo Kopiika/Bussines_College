@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>03_oliot</title>
+</head>
+<body>
+	<!-- Tehtävä 3 -->
+	<header><button id="button_theme">Change theme</button></header>
+	<main>
+		<!-- Tehtävä 4 -->
+		<div class="counter">
+			<span id="value">0</span>
+			<button id="inctease_btn">+</button>
+			<button id="decrease_btn">-</button>
+		</div>
+
+		<!-- Tehtävä 5 -->
+		<div class="product_section">
+			<p><span id="itemName"></span> <span id="itemPrice"></span>€</p>
+
+			<input type="number" id="quantityNumber" min="0" value="1" />
+			<label for="quantityNumber">kpl</label>
+
+			<p id="total"></p>
+		</div>
+
+		<!-- Tehtävä 6 -->
+		<div class="task-section">
+			<input id="task-title" type="text" placeholder="Task title"> <br>
+			<textarea id="description" placeholder="Task description"></textarea><br>
+			<label for="completed">
+				Completed?
+				<input type="checkbox" id="completed">
+			</label> <br>
+			<button id="task_btn">Add task</button>
+			<ul id="taskList"></ul>
+		</div>
+
+		<!-- Tehtävä 7 -->
+		<input type="text" id="cityInput" placeholder="Syötä kaupunki" />
+		<button id="getWeather">Hae sää</button>
+		<div id="weatherResult"></div>
+
+		<!-- Tehtävä 8 -->
+		<div id="carInfo"></div>
+
+		<!-- Tehtävä 9 -->
+		<div>
+			<ul id="userList"></ul>
+			 <button id="sort_btn">Lajittele pisteiden mukaan</button>
+	
+		</div>
+		 <!-- Tehtävä 10 -->
+		 <div>
+			<ul id="productList"></ul>
+		 	 <label for="input">
+				<input type="text" id="input" placeholder="enter the product">
+			  </label>
+			  <button id="update_btn" >Update</button>
+		 </div>
+
+		 <!-- Tehtävä 11 -->
+		  <div id="posts"></div>
+
+		  <!-- Tehtävä 13 -->
+			<div id="timer">0</div>
+			<button id="start_btn">Start</button>
+			<button id="stop_btn">Stop</button>
+
+			<!-- Tehtävä 14 -->
+			 <form id="bookForm">
+				<label for="title"> Kirjan nimi:
+					<input id="title" type="text" placeholder="Syötä nimi" required>
+				</label>
+				<label for="author">Kirjailija:
+					<input id="author" type="text" placeholder="Syötä kirjoittaja" required>
+				</label>
+				<label for="pages">Sivut:
+					<input id="pages" type="number" placeholder="Syötä sivut" required>
+				</label>
+				<button id="addBook_btn" type="submit">Lisää kirja</button>
+			</form>
+			<ul id="books"></ul>
+
+			<!-- Tehtävä 15 -->
+			 <form>
+				<label for="fox-name">Kettun nimi:<input id="fox-name" type="text" placeholder="Syötä kettun nimi"></label>
+				<label for="fox-location">Kettun sijainti: <input id="fox-location" type="text" placeholder="Syötä kettun sijainti"></label>
+				<button id="addFox_btn">Add fox</button>
+			 </form>
+
+			 <ul id="foxList"></ul>
+
+	</main>
+	<footer></footer>
+	<script src="03_oliot.js"></script>
+</body>
+</html>

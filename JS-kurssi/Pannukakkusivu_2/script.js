@@ -1,5 +1,4 @@
 
-
 const form = document.getElementById("pancakeForm");
 const totalPrice = document.getElementById("totalPrice");
 const totalPriceDisplay = document.getElementById("totalPriceDisplay");
