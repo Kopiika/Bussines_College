@@ -1,0 +1,33 @@
+*{
+	background: rgb(28, 128, 190);
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.grid1 {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(4, 100px);
+	background: #b3b3b3;
+	gap: 1rem;
+	margin: 50px auto;
+}
+
+.item {
+background: white;
+}
+
+.item:first-child{
+	background: green;
+	grid-column: 1 / span 4;
+}
+
+.item:nth-child(2) {
+	background: blue;
+	grid-column: 1/2;
+	grid-row: 2/4;
+}
+
+.item:last-child{
+	background-color: yellow;
+	grid-column: 1/5;
+}
