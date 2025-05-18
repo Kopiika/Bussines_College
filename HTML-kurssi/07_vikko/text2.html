@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>3x3 Анімація блоків при прокручуванні</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: sans-serif;
+      background: #f5f5f5;
+    }
+
+    .spacer {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #777;
+      font-size: 24px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+
+    .box {
+      background-color: white;
+      padding: 40px;
+      text-align: center;
+      font-size: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateX(100px); /* початковий стан: виїзд справа */
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .box.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Альтернуючи напрямок для вигляду виїзду з боків */
+    .box:nth-child(3n + 1) {
+      transform: translateX(-100px); /* зліва */
+    }
+  </style>
+</head>
+<body>
+
+  <div class="spacer">Прокрути вниз ↓</div>
+
+  <div class="grid">
+    <div class="box">Блок 1</div>
+    <div class="box">Блок 2</div>
+    <div class="box">Блок 3</div>
+    <div class="box">Блок 4</div>
+    <div class="box">Блок 5</div>
+    <div class="box">Блок 6</div>
+    <div class="box">Блок 7</div>
+    <div class="box">Блок 8</div>
+    <div class="box">Блок 9</div>
+  </div>
+
+  <script>
+    const boxes = document.querySelectorAll('.box');
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          const box = entry.target;
+          const delay = [...boxes].indexOf(box) * 150; // затримка по порядку
+          setTimeout(() => {
+            box.classList.add('visible');
+          }, delay);
+          observer.unobserve(box); // більше не спостерігати
+        }
+      });
+    }, {
+      threshold: 0.1
+    });
+
+    boxes.forEach(box => observer.observe(box));
+  </script>
+
+</body>
+</html>

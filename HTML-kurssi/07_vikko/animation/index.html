@@ -3,9 +3,104 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
 	<title>Document</title>
 </head>
 <body>
-	
+	<header><a class="link" href="">google.com</a></header>
+	<div class="box bee"></div>
+	<div class="box jump"></div>
+	<div class="box change-color"></div>
+	<div class="box element"></div>
+	<div class="box circle"></div>
+	<div class="element1" id="box">Я зникаю!</div>
+  <button class="button-opacity" onclick="toggleFade()">Показати/Приховати</button>
+
+	<div class="transition">
+		<button class="button">Button1</button>
+		<div class="box-growing"></div>
+		<div class="card"></div>
+	</div>
+
+	<button class="toggle-btn" onclick="toggleMenu()">Показати меню</button>
+
+  <div class="menu" id="menu">
+    <a href="#">Пункт 1</a>
+    <a href="#">Пункт 2</a>
+    <a href="#">Пункт 3</a>
+    <a href="#">Пункт 4</a>
+  </div>
+
+<div class="image-container">
+	<img src="image.png" alt="bee">
+</div>
+  <div class="button1">Button2</div>
+
+
+  <div class="section">
+	<p>Прокрути вниз ↓</p>
+ </div>
+
+ <div class="section fade-in">
+	<div class="box1">Я з'явився при прокручуванні!</div>
+ </div>
+
+ <div class="spacer">Прокрути вниз ↓</div>
+
+
+ <!-- Анімація з'явлення при прокручуванні -->
+  <div class="block">Tämä lohko tulee näkyviin vieritettäessä</div>
+  <div class="block">Tämä lohko tulee näkyviin vieritettäessä</div>
+  <div class="block">Tämä lohko tulee näkyviin vieritettäessä</div>
+  <div class="block">Tämä lohko tulee näkyviin vieritettäessä</div>
+
+  <script>
+    function toggleMenu() {
+      var menu = document.getElementById('menu');
+      menu.classList.toggle('open');
+    }
+
+	 //Opacity з переходом і затримкою
+	 const box = document.getElementById('box');
+
+    function toggleFade() {
+      box.classList.toggle('hidden');
+    }
+
+	 //Анімація з'явлення при прокручуванні 
+		const blocks = document.querySelectorAll('.block');
+
+		const observer1 = new IntersectionObserver((entries) => {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('visible');
+				observer1.unobserve(entry.target); // зупинити спостереження після появи
+			}
+		});
+		}, {
+		threshold: 0.1
+		});
+
+	blocks.forEach(block => observer1.observe(block));
+
+
+
+
+	 // Спостерігач для fade-in елементів
+    const fadeInElements = document.querySelectorAll('.fade-in');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.1 // коли 10% елемента видно
+    });
+
+    fadeInElements.forEach(el => observer.observe(el));
+
+  </script>
 </body>
 </html>

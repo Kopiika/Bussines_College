@@ -1,0 +1,332 @@
+* {
+	box-sizing: border-box;
+ }
+
+ header{
+	margin-bottom: 30px;
+ }
+
+ .transition{
+	margin-top: 30px;
+ }
+
+
+ .box {
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+	background-color: orange;
+	margin-left: 30px;
+ }
+
+/*Блок стрибає вгору-вниз. */
+@keyframes bounce {
+	0% {
+	  transform: translateY(0);
+	}
+	50% {
+	  transform: translateY(-20px);
+	}
+	100% {
+	  transform: translateY(0);
+	}
+
+ }
+ .jump {
+	animation: bounce 0.5s ease infinite;
+ }
+ 
+ 
+ /* Блок змінює колір з червоного на синій і зелений. */
+
+ @keyframes colorChange {
+	0% {
+	  background-color: red;
+	}
+	50% {
+	  background-color: blue;
+	}
+	100% {
+	  background-color: green;
+	}
+ }
+ 
+ .change-color {
+	animation: colorChange 3s ease infinite;}
+
+/* Елемент обертається нескінченно і змінює напрямок кожного разу */
+
+	@keyframes spin {
+		from {
+		  transform: rotate(0deg);
+		}
+		to {
+		  transform: rotate(360deg);
+		}
+	 }
+
+	.element {
+		background-color: rgb(38, 193, 214);
+		animation: spin 2s linear 1s infinite alternate;
+	 }
+
+/* Коло обертається лише тоді, коли на нього наводять курсор */
+
+	 @keyframes rotate {
+		from {
+		  transform: rotate(0deg);
+		}
+		to {
+		  transform: rotate(360deg);
+		}
+	 }
+	 
+	 .circle {
+		animation: none;
+	 }
+	 
+	 .circle:hover {
+		animation: rotate 1s linear;
+	 }
+
+	 
+/* Колір кнопки змінюється плавно з синього на червоний при наведенні курсора. */
+	 .button {
+		width: 100px;
+		height: 30px;
+		background-color: blue;
+		margin-bottom: 30px;
+		color: white;
+		border: none;
+		transition: background-color 0.3s ease;
+	 }
+	 
+	 .button:hover {
+		background-color: red;
+		color:greenyellow
+	 }
+
+/* Блок збільшується при наведенні курсора. */
+	 .box-growing {
+		width: 100px;
+		height: 100px;
+		background-color: green;
+		transition: width 0.5s ease, height 0.5s ease;
+	 }
+	 
+	 .box-growing:hover {
+		width: 200px;
+		height: 200px;
+	 }
+
+/* Картка збільшується та змінює колір при наведенні. */
+
+.card {
+	width: 100px;
+	height: 100px;
+	background-color: rgb(232, 201, 22);
+	transition: all 0.5s ease;
+ }
+ 
+ .card:hover {
+	transform: scale(1.1);
+	background-color: lightblue;
+ }
+
+ .bee {
+	width: 100px;
+	height: 100px;
+	background-color: rgb(94, 13, 119);
+	transition: all 0.5s ease;
+	
+	animation: none;
+ }
+ 
+ 
+ .bee:hover {
+	background-color: rgb(168, 84, 177);
+	transform: scale(1.4) rotate(360deg);
+ }
+
+ /* Меню відкривається та закривається плавно */
+ .menu {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.5s ease-in-out;
+	background-color: #f1f1f1;
+ }
+ 
+ .menu.open {
+	max-height: 300px;
+ }
+
+ .menu a {
+	display: block;
+	padding: 10px;
+	text-decoration: none;
+	color: #333;
+	background-color: #ddd;
+	margin: 5px 0;
+ }
+
+ .menu a:hover {
+	background-color: #ccc;
+ }
+
+ .toggle-btn {
+	padding: 10px 20px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	cursor: pointer;
+	margin: 20px;
+ }
+
+ .toggle-btn:hover {
+	background-color: #0056b3;
+ }
+
+
+ /* Кнопка виглядає, ніби трохи стискається, коли її натискають. */
+
+ .button1 {
+	background-color: #682670;
+	color: #f1f1f1;
+	padding: 10px;
+	width: 100px;
+	transition: transform 0.2s ease;
+	cursor: pointer;
+	margin-bottom: 30px;
+ }
+ 
+ .button1:active {
+	transform: scale(0.95);
+ }
+
+ /* Зображення збільшується, коли на нього наводять курсор. */
+ .image-container img {
+	max-width: 200px;
+	transition: transform 0.3s ease-in-out;
+ }
+ 
+ .image-container img:hover {
+	transform: scale(1.1);
+ }
+
+ /* Підкреслення з’являється плавно, коли на текст наводять курсор. */
+ .link {
+	display: inline-block;
+	position: relative;
+	text-decoration: none;
+	color: #333;
+ }
+ 
+ .link::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 2px;
+	bottom: 0;
+	left: 0;
+	background-color: #007bff;
+	transform: scaleX(0);
+	transition: transform 0.3s ease-in-out;
+ }
+ 
+ .link:hover::after {
+	transform: scaleX(1);
+ }
+
+ /* Перехід почнеться через 0,2 секунди і буде рухатися плавно за кривою ease-in-out. Opacity з переходом і затримкою*/
+ .element1 {
+	width: 200px;
+	height: 100px;
+	background-color: steelblue;
+	color: white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 20px;
+	margin: 40px auto;
+	cursor: pointer;
+	opacity: 1;
+	transition: opacity 0.5s ease-in-out 0.2s;
+ }
+ .element1.hidden {
+	opacity: 0;
+ }
+
+ .button-opacity {
+	display: block;
+	margin: 20px auto;
+	padding: 10px 20px;
+	font-size: 16px;
+ }
+
+ 
+ /* Анімація з'явлення при прокручуванні */
+ .spacer {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 24px;
+	color: #555;
+ }
+
+ .block {
+	width: 80%;
+	max-width: 600px;
+	margin: 40px auto;
+	padding: 30px;
+	background: white;
+	box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+	border-radius: 10px;
+	opacity: 0;
+	transform: translateY(40px);
+	transition: opacity 0.6s ease, transform 0.6s ease;
+ }
+
+ .block.visible {
+	opacity: 1;
+	transform: translateY(0);
+ }
+ 
+ 
+ /* Елементи з’являються плавно, коли вони прокручуються в поле зору (для цього потрібно використовувати JavaScript для додавання класу .visible). */
+ .fade-in {
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+ }
+ 
+ .fade-in.visible {
+	opacity: 1;
+	transform: translateY(0);
+ }
+
+ .section {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+ }
+
+ .fade-in {
+	opacity: 0;
+	transform: translateY(20px);
+	transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+ }
+
+ .fade-in.visible {
+	opacity: 1;
+	transform: translateY(0);
+ }
+
+ .box1 {
+	padding: 40px;
+	background-color: lightcoral;
+	color: white;
+	font-size: 24px;
+	border-radius: 8px;
+ }

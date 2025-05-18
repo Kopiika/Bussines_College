@@ -1,16 +1,42 @@
 @import url("reset.css");
 
+/* rgb(236, 234, 233) світло білий
+rgb(227, 226, 226) темніший білий
+rgb(81, 168, 150) бірюза
+rgb(20, 31, 48) темно синій
+rgb(33, 33, 33) чорний */
 
-/*color: rgb(63, 137, 139) 
-rgb(223, 222, 220)
-rgb(20, 31, 48)
-rgb(32, 40, 58)
-*/
+
 body{
 	font-family: "Inter", sans-serif;
 	font-size: 18px;
-	color: #ffffff;
-	background-color: rgb(32, 40, 58);
+	transition: all 0.5s ease 0s;
+}
+
+html.dark body {
+	color:rgb(236, 234, 233);
+	background-color: rgb(20, 31, 48);
+}
+
+html.light body {
+	background-color: rgb(227, 226, 226);
+	color: rgb(33, 33, 33);
+}
+html.light .header__body{
+	background-color: rgb(227, 226, 226);
+	color: rgb(20, 31, 48);
+}
+.page__theme {
+	width: 26px;
+	height: 26px;
+	border: none;
+	cursor: pointer;
+}
+html.dark .page__theme{
+	background: url('image/sun.svg') center / contain no-repeat;
+}
+html.light .page__theme{
+	background: url('image/moon.svg') center / contain no-repeat;
 }
 
 .wrapper{
@@ -24,3 +50,197 @@ body{
 	flex-grow: 1;
 }
 
+/* HEADER */
+.header{
+	padding: 15px 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 50;
+	width: 100%;
+}
+.header__container{
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 15px;
+}
+
+.header__body{
+	padding: 15px 25px;
+	border-radius: 10px;
+	background-color: rgb(34, 43, 57);
+	box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 15px 0 rgba(0, 0, 0, 0.07);
+	color: rgb(236, 234, 233);
+	display: grid;
+	align-items: center;
+	grid-template-columns: auto 1fr auto;
+	column-gap: 20px;
+}
+
+.header__logo {
+	position: relative;
+	font-size: 22px;
+	font-weight: 700;
+	z-index: 3;
+	line-height: 110%;
+	transition: all 0.5s ease;
+}
+.header__logo span{
+	display: block;
+	color:rgb(81, 168, 150);
+	transition: all 0.5s ease;
+}
+
+.header__logo:hover{
+	transform: scale(1.1);
+}
+
+.header__logo:active{
+	transform: scale(1.0);
+}
+
+.menu__list{
+	display: flex;
+	justify-content: end;
+	flex-wrap: wrap;
+	column-gap: 32px;
+	row-gap: 5px;
+}
+
+.menu__link{
+	font-weight: 500;
+	line-height: 1.5;
+	letter-spacing: 0.5px;
+	transition: all 0.5s ease;
+}
+
+.menu__link:hover{
+	transform: scale(1.1);
+	color: rgb(37, 197, 165);
+}
+
+.menu__link:active{
+	transform: scale(0.95);
+}
+
+.icon__menu{
+	display: none;
+}
+
+section{
+	padding-top: 80px;
+	padding-bottom: 80px;
+}
+
+[class*="__container"]{
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 30px;
+}
+
+/* HERO */
+.hero{
+	background-color: rgb(20, 31, 48);
+	color: rgb(236, 234, 233);
+	min-height: 100vh;
+	padding: 60px 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.hero__container{
+	display: grid;
+	align-items: center;
+	grid-template-columns: 50% 50%;
+}
+
+.hero__image{
+	max-width: 100%;
+}
+
+.hero__body{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-content: center;
+	row-gap: 20px;
+	padding-left: 20px;
+}
+
+.hero__title{
+	font-size: 3rem;
+	letter-spacing: 2px;
+	line-height: 1.5;
+}
+
+.hero__subtitle{
+	font-size: 1.5rem;
+	letter-spacing: 2px;
+}
+.hero__title span {
+	color:rgb(81, 168, 150);
+}
+
+.typewriter-container {
+	font-size: 1.5rem;
+	letter-spacing: 2px;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	border-right: 2px solid transparent;
+	padding-right: 4px;
+ }
+ 
+ .cursor {
+	display: inline-block;
+	font-weight: bold;
+	animation: blink 0.7s infinite;
+ }
+ 
+ @keyframes blink {
+	0%, 100% { opacity: 1; }
+	50% { opacity: 0; }
+ }
+ 
+
+.hero-links{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	gap: 30px;
+	flex-wrap: wrap;
+}
+
+.button{
+	background-color: rgb(81, 168, 150);
+	color: rgb(236, 234, 233);
+	padding: 15px 30px;
+	border-radius: 7px;
+	font-weight: 500;
+	font-size: 1.2rem;
+	transition: background-color 0.3s ease, transform 0.2s ease;
+	cursor: pointer;
+}
+
+.button:hover{
+	background-color: rgb(37, 197, 165);
+}
+
+.button:active{
+	transform: scale(0.95);
+}
+
+.social-icons svg {
+	width: 32px;
+	height: 32px;
+	margin-right: 20px;
+	transition: color 0.3s;
+	fill: currentColor;
+	transition: all 0.3s ease;
+ }
+
+ .social-icons a:hover {
+	opacity: 0.8;
+ }
