@@ -43,14 +43,19 @@ let currentUsers = 10;
  Tulosta objekti konsoliin.
  */
  
- function task3() {
-	const userProfile = {
-		name: "Roosa",
-		email: "roosa@esimerki.com",
-		isAdmin: false
+class UserProfile {
+	constructor(name, email, isAdmin){
+		this.name = name;
+		this.email =email;
+		this
 	}
+}
 
-	console.log(userProfile);
+ function task3() {
+	const user1 = new UserProfile ("Roosa","roosa@esimerki.com", false); 
+	const user2 = new UserProfile (true, 45, "jotain");
+	console.log(user1);
+	console.log(user2);
  }
 
  task3();
@@ -59,13 +64,20 @@ let currentUsers = 10;
  
  Luo funktio `calculateArea(width, height)`, joka palauttaa suorakulmion pinta-alan.
  */
+/**
+ * Laskee suorakulmion pinta-alan.
+
+ * @param {number} width
+ * @param {number} height
+ * @returns {number} laskettu pinta-ala
+ * @throws {Error} jos määrä on nolla tai negatiivinen
+ */
  
  function calculateArea(width, height) {
-	let pintaAlan = width * height;
-	console.log ("Pinta-alan on: " + pintaAlan);
+	return width * height;
  }
-
- calculateArea(10,5);
+ console.log ("Pinta-alan on: ", calculateArea(10,5));
+ 
 
  
  /* Tehtävä 5: Vältä taikalukuja
