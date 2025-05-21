@@ -16,7 +16,7 @@
 	    <div class="header__container">
 	    	<div class="header__body">
 	    		<a href="#" class="header__logo"> Eleonora <span>Kopiika</span></a>
-					<nav class="header__menu menu">
+					<nav id="nav-menu" class="header__menu menu">
 						<ul class="menu__list">
 							<li class="menu__item">
 								<a href="#about" class="menu__link">About Me</a>
@@ -28,15 +28,17 @@
 								<a href="#contacts" class="menu__link">Contacts</a>
 							</li>
 						</ul>
-						<!-- Menu Burger Button -->
-						<button class="icon__menu">
-							<span></span>
-						</button>
 					</nav>
 					 <div class="header__actions">
 						<!-- Dark/Light Theme -->
 						<button type="button" class="page__theme" aria-label="Toggle Theme">
 						</button>
+					 </div>
+					 <!-- Menu Burger Button -->
+					<div id="burger" class="burger">
+						<span></span>
+						<span></span>
+						<span></span>
 					 </div>
 	    	</div>
 	    </div>
@@ -48,7 +50,7 @@
 			<div class="hero__container">
 				<div class="hero__body">
 					<h2 class="hero__subtitle"> Software Developer</h2>
-					<h1 class="hero__title">Hi, I'm <span>Eleonora Kopiika</span></h1>
+					<h1 class="hero__title">Hi, I'm <span>Eleonora</span></h1>
 					<div class="typewriter-container">
 						<span id="typewriter-text" class="hero__text"></span>
 						<span class="cursor">|</span>
@@ -81,7 +83,7 @@
 		  <!-- About Section -->
 		  <section id="about" class="page__about about">
 		    <div class="about__container">
-				<img class="about__image" src="image/photo.jpg" alt="eleonora photo">
+				<img class="about__image" src="image/photo.webp" alt="eleonora photo">
 		    	<div class="about__body">
 		    		<h2 class="about__title">About Me</h2>
 				    <div class="about__text">
@@ -105,61 +107,43 @@
 					<img class="stack__item" src="image/icons/sass-brands.svg" alt="sass">
 					<img class="stack__item" src="image/icons/figma-brands.svg" alt="figma">
 				</div>
-
-			    <!-- <h3>Comfortable with:</h3>
-			    <ul>
-			      <li>HTML5, CSS3, JavaScript (ES6+)</li>
-			      <li>Git & GitHub, Responsive Design, Flexbox, Grid</li>
-			      <li>VS Code, Figma</li>
-			    </ul>
-			    <h3>Learning now:</h3>
-			    <ul>
-			      <li>React.js, Accessibility, SASS, Git Workflows</li>
-			    </ul>
-			    <h3>Tech I'm excited about:</h3>
-			    <p>JAMstack, TypeScript, Astro, CSS Animation</p> -->
 		    </div>
 		  </section>
-		
-		  <!-- My Values
-		  <section id="values">
-		   <div class="values__container">
-		   	 <h2>How I Work</h2>
-			    <ul>
-			      <li>✅ Clarity over cleverness – code that's easy to read and maintain.</li>
-			      <li>✅ Mobile-first approach – because everyone’s got a phone.</li>
-			      <li>✅ Continuous improvement – each project teaches me something new.</li>
-			      <li>✅ Accessibility & clean design – great UI should be usable by everyone.</li>
-			    </ul>
-		   </div>
-		  </section>  -->
 		
 		  <!-- Projects Section -->
 		  <section id="projects">
 		    <div class="projects__container">
-		    	<h2>Projects</h2>
+		    	<h2 class="projects__title">Projects</h2>
 
 			    <div class="projects__cards">
 
 			    	<div class="project-card">
 						<div class="project__image"><img src="image/projects/project-5.png" alt=""></div>
-				      <h3>Responsive Portfolio Site</h3>
-				      <p> HTML, CSS Grid, JS</p>
+				      <h3>Magic 8-ball simulator</h3>
+				      <div class="project__details">
+				      	<p><strong>Tools:</strong> HTML, CSS, JavaScript</p>
+					      <p>Build an interactive Magic 8-ball application with HTML, CSS, and JavaScript.</p>
+					      <p><a href="#">Code</a> | <a href="#">Live demo</a></p>
+				      </div>
 				    </div>
 
 					 <div class="project-card">
 						<div class="project__image"><img src="image/projects/project-8.png" alt=""></div>
-				      <h3>Responsive Portfolio Site</h3>
-				      <p><strong>Tools:</strong> HTML, CSS Grid, JS</p>
-				      <p>Built a mobile-first personal site with light/dark theme toggle and animated sections.</p>
-				      <p><a href="#">Code</a> | <a href="#">Live demo</a></p>
+				      <h3>Pancakes orders site</h3>
+				      <div class="project__details">
+				      	<p><strong>Tools:</strong> HTML, CSS, JS, LocalStorage, DOM API</p>
+					      <p>A web application for creating and managing pancake orders with local data storage.</p>
+					      <p><a href="#">Code</a> | <a href="#">Live demo</a></p>
+				      </div>
 				    </div>
 					 <div class="project-card">
-						<div class="project__image"><img src="image/projects/project-6.png" alt=""></div>
-				      <h3>Responsive Portfolio Site</h3>
-				      <p><strong>Tools:</strong> HTML, CSS Grid, JS</p>
-				      <p>Built a mobile-first personal site with light/dark theme toggle and animated sections.</p>
-				      <p><a href="#">Code</a> | <a href="#">Live demo</a></p>
+						<div class="project__image"><img src="image/projects/project-4.png" alt=""></div>
+				      <h3>Pikku Eläintarha - Practice Project</h3>
+				     <div class="project__details">
+				     	 <p><strong>Tools:</strong> HTML, CSS, JS</p>
+					      <p>A small web project for practicing arrays, objects, events, and DOM manipulation. It includes features for adding, filtering, searching, sorting, and deleting animals. Each animal is displayed as a styled card for better UI clarity.</p>
+							<p><a href="#">Code</a> | <a href="#">Live demo</a></p>
+				     </div>
 				    </div>
 			    </div>
 		    </div>
@@ -183,16 +167,19 @@
 	  <!-- Contact Footer -->
 	  <footer id="contacts" class="footer">
 	   <div class="footer__container">
-	   	 <h2>Contact Me</h2>
-		    <p>Want to work together or say hi?</p>
-		    <p>Email me at <a href="mailto:email@example.com">email@example.com</a> or use the form below:</p>
-		    <form>
+	   	<div class="footer__text">
+	   		 <h2 class="footer__title">Contact Me</h2>
+			    <p class="text--bold">Want to work together or say hi?</p>
+			    <p>Email me at <a href="eleonora.kopiika@gmail.com">eleonora.kopiika@gmail.com</a> or use this form:</p>
+	   	</div>
+		    <form id="contactForm">
 		      <input type="text" placeholder="Your Name" required>
 		      <input type="email" placeholder="Your Email" required>
 		      <textarea placeholder="Your Message" required></textarea>
-		      <button type="submit">Send</button>
+		      <button id="contacts__btn" type="submit">Send</button>
 		    </form>
 	   </div>
+		<div class="footer__copyright">Copyright © Eleonora Kopiika 2025</div>
 	  </footer>
 
 	  <button id="scrollToTopBtn" title="Back to top">↑</button>

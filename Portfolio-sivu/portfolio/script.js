@@ -195,3 +195,37 @@ scrollToTopBtn.addEventListener("click", () => {
     behavior: "smooth"
   });
 });
+
+/* Menu Burger */
+
+const burger = document.getElementById("burger");
+const navMenu = document.getElementById("nav-menu");
+const header = document.getElementById("site-header");
+
+if (header && navMenu){
+	burger.addEventListener("click", () => {
+		navMenu.classList.toggle("active");
+	 });
+}
+
+
+//counting header hight
+function setMenuTopOffset() {
+  const headerHeight = header.offsetHeight;
+  navMenu.style.top = `${headerHeight}px`;
+}
+
+window.addEventListener("load", setMenuTopOffset);
+window.addEventListener("resize", setMenuTopOffset);
+
+
+ // Закриваємо меню при кліку поза меню та бургером
+document.addEventListener('click', (event) => {
+	// Якщо меню відкрито
+	if (navMenu.classList.contains('active')) {
+	  // Перевіряємо, чи клік був НЕ по меню і НЕ по бургеру
+	  if (!navMenu.contains(event.target) && !burger.contains(event.target)) {
+		 navMenu.classList.remove('active');
+	  }
+	}
+ });
