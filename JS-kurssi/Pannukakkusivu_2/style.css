@@ -99,17 +99,27 @@ body {
 	}
  }
 
- #seeOrder{
+ #seeOrder,
+ #confirmOrder,
+ #editOrder {
 	color: #ffffff;
 	background-color: rgb(63, 137, 139);
 	font-weight: 600;
 	display: inline-block;
 	padding: 20px;
-	border-radius: 5px;
+	border-radius: 10px;
 	border: none;
 	font-size: 18px;
 	cursor: pointer;
  }
+
+ #confirmOrder{
+	background-color: #d17b49;
+ }
+ #confirmOrder:hover{
+	background-color: #f49660;
+ }
+ 
 
  #customerNameCheck {
 	transition: opacity 0.5s ease;
@@ -118,12 +128,14 @@ body {
 	margin-top: 5px;
  }
 
- #seeOrder:hover{
-	box-shadow: 1px 3px 5px #373534;
+ #seeOrder:hover,
+ #editOrder:hover{
+	background-color: rgb(81, 161, 164);
 	transition: all 0.2s;
  }
 
- #seeOrder:active{
+ #seeOrder:active,
+ #editOrder:active{
 	background-color: #d17b49;
 	box-shadow: none;
  }
@@ -169,11 +181,6 @@ body {
 	margin-top: 20px;
  }
  
- .modal-buttons button {
-	margin: 5px;
-	padding: 10px 20px;
-	cursor: pointer;
-	font-size: 16px;
- }
+
 
  

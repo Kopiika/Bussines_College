@@ -49,7 +49,7 @@ function windowLoad() {
 	}
 }
 
-/* prenting text */
+/* printing text in Hero section */
 const phrases = [
   "Junior web developer 💻",
   "Focused on frontend 🎯",
@@ -76,12 +76,12 @@ function type() {
   let speed = isDeleting ? 40 : 100;
 
   if (!isDeleting && letterIndex === currentPhrase.length) {
-    speed = 1200; // Пауза перед стиранням
+    speed = 1200; // pause before erasing
     isDeleting = true;
   } else if (isDeleting && letterIndex === 0) {
     isDeleting = false;
     phraseIndex = (phraseIndex + 1) % phrases.length;
-    speed = 500; // Пауза перед наступною фразою
+    speed = 500; // Pause before the next phrase
   }
 
   setTimeout(type, speed);
@@ -89,7 +89,7 @@ function type() {
 
 type();
 
-/* --animate */
+/* --animate stuck section */
 
 const options = {
 	root: null,
@@ -114,3 +114,84 @@ const animElements = document.querySelectorAll('[class*="--anim"]')
 animElements.forEach (animElement => {
 	observer.observe(animElement)
 })
+
+
+/* modal in projects section*/
+document.addEventListener('DOMContentLoaded', () => {
+	const modal = document.getElementById('project-modal');
+	const modalImage = modal.querySelector('.modal__image');
+	const modalTitle = modal.querySelector('.modal__title');
+	const modalDescription = modal.querySelector('.modal__description');
+	const modalTools = modal.querySelector('.modal__tools');
+	const modalLinks = modal.querySelector('.modal__links');
+	const closeBtn = modal.querySelector('.modal__close');
+	const overlay = modal.querySelector('.modal__overlay');
+ 
+	const projectCards = document.querySelectorAll('.project-card');
+ 
+	projectCards.forEach(card => {
+	  card.addEventListener('click', () => {
+		 const image = card.querySelector('img')?.src;
+		 const title = card.querySelector('h3')?.textContent;
+		 const description = card.querySelectorAll('p')[1]?.textContent || '';
+		 const tools = card.querySelectorAll('p')[0]?.textContent || '';
+		 const links = card.querySelectorAll('p')[2]?.innerHTML || '';
+ 
+		 modalImage.src = image;
+		 modalTitle.textContent = title;
+		 modalDescription.textContent = description;
+		 modalTools.textContent = tools;
+		 modalLinks.innerHTML = links;
+ 
+		 modal.style.display = 'block';
+		 document.body.style.overflow = 'hidden';
+	  });
+	});
+ 
+	const closeModal = () => {
+	  modal.style.display = 'none';
+	  document.body.style.overflow = '';
+	};
+ 
+	closeBtn.addEventListener('click', closeModal);
+	overlay.addEventListener('click', closeModal);
+ });
+ 
+/* Smooth scrolling */
+ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+	anchor.addEventListener("click", function (e) {
+	  e.preventDefault();
+ 
+	  const targetId = this.getAttribute("href").substring(1);
+	  const target = document.getElementById(targetId);
+ 
+	  const header = document.getElementById("site-header");
+	  const headerHeight = header.offsetHeight;
+ 
+	  const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+ 
+	  window.scrollTo({
+		 top: targetPosition,
+		 behavior: "smooth"
+	  });
+	});
+ });
+ 
+ 
+ /* Scroll to Top Button */
+ const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    scrollToTopBtn.style.display = "block";
+  } else {
+    scrollToTopBtn.style.display = "none";
+  }
+});
+
+scrollToTopBtn.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});

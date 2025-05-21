@@ -1,0 +1,46 @@
+body{
+	
+}
+
+.page{
+	margin: 0 auto;
+	padding: 0 30px;
+
+}
+
+h1{
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+#ordersContainer{
+	display: flex;
+	gap: 20px;
+}
+
+@media (max-width: 650px) {
+	#ordersContainer{
+		flex-direction: column;
+	}
+}
+
+.order {
+	padding: 1em;
+	margin-bottom: 1em;
+	border-radius: 8px;
+	transition: background-color 0.3s ease;
+	border: 1px solid #ccc;
+ }
+
+/* Кольори статусів */
+.status-odottaa {
+	background-color: #fcecba; /* жовтий */
+ }
+ 
+ .status-valmis {
+	background-color: #b8d2fa; /* блакитний */
+ }
+ 
+ .status-toimitettu {
+	background-color:#c1e5d5; /* зелений */ 
+ }

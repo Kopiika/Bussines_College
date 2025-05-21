@@ -60,7 +60,7 @@ body {
 	background-color: #6c2bff;
 	color: white;
 	cursor: pointer;
-	transition: background 0.3s;
+	transition: background-color 0.3s;
  }
  
  button:hover {
@@ -122,4 +122,5 @@ body {
  .show-answer .answer {
 	opacity: 1;
  }
+
  

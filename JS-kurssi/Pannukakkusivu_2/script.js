@@ -2,7 +2,7 @@
 const form = document.getElementById("pancakeForm");
 const totalPrice = document.getElementById("totalPrice");
 const totalPriceDisplay = document.getElementById("totalPriceDisplay");
-const orderSummary = document.getElementById("summaryText");
+
 
 let toppings = [];
 let extras = [];
@@ -73,7 +73,15 @@ function updatePrice() {
   }, 600);
 }
 
-// 📋 Показати підсумок при натисканні кнопки
+
+
+const modal = document.getElementById("orderModal");
+const closeModal = document.getElementById("closeModal");
+const confirmOrder = document.getElementById("confirmOrder");
+const editOrder = document.getElementById("editOrder");
+const modalSummaryText = document.getElementById("modalSummaryText");
+
+// 📋 Показати замовлення при натисканні кнопки
 document.getElementById('seeOrder').addEventListener('click', () => {
   const name = document.getElementById('customerName').value.trim();
 
@@ -93,7 +101,7 @@ document.getElementById('seeOrder').addEventListener('click', () => {
   const delivery = document.querySelector('input[name="delivery"]:checked').parentElement.textContent.trim();
   const price = totalPrice.textContent;
 
-  orderSummary.innerHTML = `
+  modalSummaryText.innerHTML = `
     <strong>Nimi:</strong> ${name}<br>
     <strong>Pannukakun tyyppi:</strong> ${pancake}<br>
     <strong>Täytteet:</strong> ${toppings.join(', ') || 'ei'}<br>
@@ -101,9 +109,60 @@ document.getElementById('seeOrder').addEventListener('click', () => {
     <strong>Toimitustap:</strong> ${delivery}<br>
     <strong>Kokonaishinta:</strong> ${price}
   `;
+
+  // Показати модальне вікно
+  modal.style.display = "block";
 });
 
-// 🔄 Функція для очищення блоку підсумку
-function clearSummary() {
-  orderSummary.innerHTML = 'Tietosi tulevat tähän.';
-}
+// Закрити модальне вікно
+closeModal.addEventListener('click', () => {
+  modal.style.display = "none";
+});
+
+// Кнопка "Muokkaa tilausta"
+editOrder.addEventListener('click', () => {
+  modal.style.display = "none";
+});
+
+// Кнопка "Tilaa"
+confirmOrder.addEventListener('click', () => {
+  const name = document.getElementById('customerName').value.trim();
+  const pancake = document.getElementById('type').selectedOptions[0].textContent;
+  const delivery = document.querySelector('input[name="delivery"]:checked').parentElement.textContent.trim();
+  const price = totalPrice.textContent;
+
+  const order = {
+    id: Date.now(),  // унікальний ID на базі дати
+    customerName: name,
+    selectedPancake: pancake,
+    toppings: toppings,
+    extras: extras,
+    deliveryMethod: delivery,
+    totalPrice: price,
+    status: "odotta", 
+  };
+
+  // Спочатку зчитай існуючі замовлення з localStorage
+  const orders = JSON.parse(localStorage.getItem("orders")) || [];
+
+  // Додай нове замовлення
+  orders.push(order);
+
+  //зберегти в localStorage
+  localStorage.setItem("orders", JSON.stringify(orders));
+
+  alert('Kiitos tilauksesta!'); // Показуємо повідомлення
+  modal.style.display = "none";
+  form.reset(); // Скидаємо форму
+  toppings = [];
+  extras = [];
+  clearSummary();
+  updatePrice();
+});
+
+// Щоб клік поза модальним закривав його
+window.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+});

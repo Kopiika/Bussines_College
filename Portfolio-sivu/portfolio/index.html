@@ -12,20 +12,20 @@
 <body>
   <div class="wrapper">
   	<!-- Header -->
-	  <header class="header">
+	  <header id="site-header" class="header">
 	    <div class="header__container">
 	    	<div class="header__body">
 	    		<a href="#" class="header__logo"> Eleonora <span>Kopiika</span></a>
 					<nav class="header__menu menu">
 						<ul class="menu__list">
 							<li class="menu__item">
-								<a href="#" class="menu__link">About Me</a>
+								<a href="#about" class="menu__link">About Me</a>
 							</li>
 							<li class="menu__item">
-								<a href="#" class="menu__link">Portfolio</a>
+								<a href="#projects" class="menu__link">Portfolio</a>
 							</li>
 							<li class="menu__item">
-								<a href="#" class="menu__link">Contacts</a>
+								<a href="#contacts" class="menu__link">Contacts</a>
 							</li>
 						</ul>
 						<!-- Menu Burger Button -->
@@ -79,7 +79,7 @@
 		 </section>
 
 		  <!-- About Section -->
-		  <section class="page__about about">
+		  <section id="about" class="page__about about">
 		    <div class="about__container">
 				<img class="about__image" src="image/photo.jpg" alt="eleonora photo">
 		    	<div class="about__body">
@@ -138,14 +138,15 @@
 		  <section id="projects">
 		    <div class="projects__container">
 		    	<h2>Projects</h2>
+
 			    <div class="projects__cards">
+
 			    	<div class="project-card">
 						<div class="project__image"><img src="image/projects/project-5.png" alt=""></div>
 				      <h3>Responsive Portfolio Site</h3>
-				      <p><strong>Tools:</strong> HTML, CSS Grid, JS</p>
-				      <p>Built a mobile-first personal site with light/dark theme toggle and animated sections.</p>
-				      <p><a href="#">Code</a> | <a href="#">Live demo</a></p>
+				      <p> HTML, CSS Grid, JS</p>
 				    </div>
+
 					 <div class="project-card">
 						<div class="project__image"><img src="image/projects/project-8.png" alt=""></div>
 				      <h3>Responsive Portfolio Site</h3>
@@ -162,11 +163,25 @@
 				    </div>
 			    </div>
 		    </div>
+
+			 <div class="modal" id="project-modal">
+				<div class="modal__overlay"></div>
+				<div class="modal__content">
+				  <button class="modal__close" aria-label="Close Modal">&times;</button>
+				  <div class="modal__details">
+					 <img src="" alt="Project Image" class="modal__image">
+					 <h3 class="modal__title"></h3>
+					 <p class="modal__description"></p>
+					 <p class="modal__tools"></p>
+					 <p class="modal__links"></p>
+				  </div>
+				</div>
+			 </div>
 		  </section>	
 	</main>
 
 	  <!-- Contact Footer -->
-	  <footer class="footer">
+	  <footer id="contacts" class="footer">
 	   <div class="footer__container">
 	   	 <h2>Contact Me</h2>
 		    <p>Want to work together or say hi?</p>
@@ -179,6 +194,8 @@
 		    </form>
 	   </div>
 	  </footer>
+
+	  <button id="scrollToTopBtn" title="Back to top">↑</button>
   </div>
   <script src="script.js"></script>
 </body>

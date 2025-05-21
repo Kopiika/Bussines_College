@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tilaa pannukakku</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -15,7 +16,7 @@
       <div class="form-container">
         <h2>Muokkaa Pannukakkuasi</h2>
 
-        <form id="pancakeForm">
+        <form id="pancakeForm" autocomplete="off">
           <!-- Asiakkaan nimi -->
           <label for="customerName">Sinun nimesi:</label>
           <input type="text" id="customerName" placeholder="Enter your name" />
@@ -91,28 +92,24 @@
         </form>
 
         <!-- Tilauksen yhteenvedon esittäminen -->
-        <div id="orderSummary">
-          <h3>Tilauksen yhteenveto</h3>
-          <p id="summaryText">Tietosi tulevat tähän.</p>
+          <!-- Модальне вікно -->
+        <div id="orderModal" class="modal">
+          <div class="modal-content">
+            <span id="closeModal" class="close">&times;</span>
+
+            <h3>Tilauksen yhteenveto</h3>
+            <p id="modalSummaryText">Tietosi tulevat tähän.</p>
+
+            <div class="modal-buttons">
+              <button id="editOrder">Muokkaa tilausta</button>
+              <button id="confirmOrder">Tilaa</button>
+            </div>
+          </div>
         </div>
+        
       </div>
+
     </div>
-
-    <!-- Модальне вікно -->
-<div id="orderModal" class="modal">
-  <div class="modal-content">
-    <span id="closeModal" class="close">&times;</span>
-
-    <h3>Tilauksen yhteenveto</h3>
-    <p id="modalSummaryText">Tietosi tulevat tähän.</p>
-
-    <div class="modal-buttons">
-      <button id="confirmOrder">Tilaa</button>
-      <button id="editOrder">Muokkaa tilausta</button>
-    </div>
-  </div>
-</div>
-
     <script src="script.js"></script>
   </body>
 </html>
