@@ -564,6 +564,25 @@ section{
 	padding: 15px;
  }
 
+ .error-message {
+	font-family: "Inter", sans-serif;
+	display: none;
+	background-color: #ffe0e0;
+	color: #d10000;
+	border: 1px solid #d10000;
+	padding: 10px;
+	margin-bottom: 5px;
+	border-radius: 7px;
+	font-size: 0.9rem;
+	text-align: center;
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out;
+}
+.error-message.show {
+	display: block;
+	opacity: 1;
+}
+
  .footer__copyright{
 	text-align: center;
 	font-weight: 200;
@@ -605,23 +624,39 @@ section{
 		justify-self: end;
 	}
 
+	.header__logo{
+		font-size: 1rem;
+	}
+
+	.hero{
+		min-height: auto;
+		padding-bottom: 0px;
+	}
+
 	.hero__container{
 		display: flex;
 		flex-direction: column-reverse;
-		gap: 40px;
+		margin-top: 40px;
+		margin-bottom: 30px;
+	}
+
+	.hero-links{
+		margin-top: 30px;
 	}
 
 	.hero__body{
 		width: 100%;
+		row-gap: 10px;
+		margin-top: 20px;
 	}
 
 	.hero__subtitle{
-		font-size: 1.7rem;
+		font-size: 1.3rem;
 		letter-spacing: 2px;
 	}
 	
 	.typewriter-container {
-		font-size: 1.7rem;
+		font-size: 1rem;
 	 }
 	 
 

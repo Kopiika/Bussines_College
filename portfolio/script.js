@@ -49,6 +49,72 @@ function windowLoad() {
 	}
 }
 
+/* printing text in Hero section */
+const phrases = [
+  "Junior web developer 💻",
+  "Focused on frontend 🎯",
+  "Lifelong learner ☕️",
+  "UI/UX design enthusiast 🎨"
+];
+
+const el = document.getElementById("typewriter-text");
+let phraseIndex = 0;
+let letterIndex = 0;
+let isDeleting = false;
+
+function type() {
+  const currentPhrase = phrases[phraseIndex];
+  
+  if (isDeleting) {
+    letterIndex--;
+  } else {
+    letterIndex++;
+  }
+
+  el.textContent = currentPhrase.substring(0, letterIndex);
+
+  let speed = isDeleting ? 40 : 100;
+
+  if (!isDeleting && letterIndex === currentPhrase.length) {
+    speed = 1200; // pause before erasing
+    isDeleting = true;
+  } else if (isDeleting && letterIndex === 0) {
+    isDeleting = false;
+    phraseIndex = (phraseIndex + 1) % phrases.length;
+    speed = 500; // Pause before the next phrase
+  }
+
+  setTimeout(type, speed);
+}
+
+type();
+
+/* --animate stuck section */
+
+const options = {
+	root: null,
+	rootMargin: "0px 0px 0px 0px",
+	threshold: 0.2,
+}
+
+const callback = (entries, observer) => {
+	entries.forEach(entry => {
+		const currentElement = entry.target
+		if (entry.isIntersecting) {
+			currentElement.classList.add('--animate')
+		} else {
+			currentElement.classList.remove('--animate')
+		}
+	})
+}
+
+const observer = new IntersectionObserver(callback, options)
+
+const animElements = document.querySelectorAll('[class*="--anim"]')
+animElements.forEach (animElement => {
+	observer.observe(animElement)
+})
+
 
 /* modal in projects section*/
 document.addEventListener('DOMContentLoaded', () => {
@@ -153,13 +219,42 @@ window.addEventListener("load", setMenuTopOffset);
 window.addEventListener("resize", setMenuTopOffset);
 
 
- // Закриваємо меню при кліку поза меню та бургером
+ //Close the menu when clicking outside the menu and burger
 document.addEventListener('click', (event) => {
-	// Якщо меню відкрито
+	// If the menu is open
 	if (navMenu.classList.contains('active')) {
-	  // Перевіряємо, чи клік був НЕ по меню і НЕ по бургеру
+	  // Check if the click was NOT on the menu and NOT on the burger
 	  if (!navMenu.contains(event.target) && !burger.contains(event.target)) {
 		 navMenu.classList.remove('active');
 	  }
 	}
  });
+
+ /* Contacts form */
+
+ document.getElementById("contactForm").addEventListener("submit", function(event){
+	const username = document.getElementById("username").value.trim();
+	const email = document.getElementById("email").value.trim();
+	const userMessage =document.getElementById("message").value.trim();
+	const errorMessage = document.getElementById("errorMessage");
+
+	if (username === "" || userMessage === ""|| email === "" ) {
+		event.preventDefault(); // Не відправляти форму
+		errorMessage.textContent = "Form fields cannot be empty!";
+		errorMessage.classList.add("show");
+
+		// Зникає через 3 секунди
+		setTimeout(() => {
+			errorMessage.classList.remove("show");
+		}, 3000);
+
+		setTimeout(() => {
+			errorMessage.classList.remove("show");
+		}, 3000);
+	} else {
+		errorMessage.classList.remove("show");
+	}
+  } 
+);
+ 
+ 

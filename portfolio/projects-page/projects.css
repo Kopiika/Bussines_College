@@ -355,6 +355,25 @@ section{
 	padding: 15px;
  }
 
+ .error-message {
+	font-family: "Inter", sans-serif;
+	display: none;
+	background-color: #ffe0e0;
+	color: #d10000;
+	border: 1px solid #d10000;
+	padding: 10px;
+	margin-bottom: 5px;
+	border-radius: 7px;
+	font-size: 0.9rem;
+	text-align: center;
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out;
+}
+.error-message.show {
+	display: block;
+	opacity: 1;
+}
+
  .footer__copyright{
 	text-align: center;
 	font-weight: 200;

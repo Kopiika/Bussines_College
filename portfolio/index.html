@@ -14,14 +14,14 @@
 	  <header id="site-header" class="header">
 	    <div class="header__container">
 	    	<div class="header__body">
-	    		<a href="http://127.0.0.1:5500/Portfolio-sivu/index.html" class="header__logo"> Eleonora <span>Kopiika</span></a>
+	    		<a href="index.html" class="header__logo"> Eleonora <span>Kopiika</span></a>
 					<nav id="nav-menu" class="header__menu menu">
 						<ul class="menu__list">
 							<li class="menu__item">
 								<a href="#about" class="menu__link">About Me</a>
 							</li>
 							<li class="menu__item">
-								<a href="http://127.0.0.1:5500/Portfolio-sivu/projects-page/projects.html" class="menu__link">Portfolio</a>
+								<a href="./projects-page/projects.html" class="menu__link">Portfolio</a>
 							</li>
 							<li class="menu__item">
 								<a href="#contacts" class="menu__link">Contacts</a>
@@ -117,7 +117,7 @@
 			    <div class="projects__cards">
 
 			    	<div class="project-card">
-						<div class="project__image"><img src="image/projects/project-5.png" alt=""></div>
+						<div class="project__image"><img src="image/projects/project-5.webp" alt="project image"></div>
 				      <h3>Magic 8-ball simulator</h3>
 				      <div class="project__details">
 				      	<p><strong>Tools:</strong> HTML, CSS, JavaScript</p>
@@ -127,7 +127,7 @@
 				    </div>
 
 					 <div class="project-card">
-						<div class="project__image"><img src="image/projects/project-8.png" alt=""></div>
+						<div class="project__image"><img src="image/projects/project-8.webp" alt="project image"></div>
 				      <h3>Pancakes orders site</h3>
 				      <div class="project__details">
 				      	<p><strong>Tools:</strong> HTML, CSS, JS, LocalStorage, DOM API</p>
@@ -136,7 +136,7 @@
 				      </div>
 				    </div>
 					 <div class="project-card">
-						<div class="project__image"><img src="image/projects/project-4.png" alt=""></div>
+						<div class="project__image"><img src="image/projects/project-4.webp" alt="project image"></div>
 				      <h3>Pikku Eläintarha - Practice Project</h3>
 				     <div class="project__details">
 				     	 <p><strong>Tools:</strong> HTML, CSS, JS</p>
@@ -169,13 +169,14 @@
 	   	<div class="footer__text">
 	   		 <h2 class="footer__title">Contact Me</h2>
 			    <p class="text--bold">Want to work together or say hi?</p>
-			    <p>Email me at <a href="eleonora.kopiika@gmail.com">eleonora.kopiika@gmail.com</a> or use this form:</p>
+			    <p>Email me at <a href="mailto:eleonora.kopiika@gmail.com">eleonora.kopiika@gmail.com</a> or use this form:</p>
 	   	</div>
 		    <form id="contactForm">
-		      <input type="text" placeholder="Your Name" required>
-		      <input type="email" placeholder="Your Email" required>
-		      <textarea placeholder="Your Message" required></textarea>
-		      <button id="contacts__btn" type="submit">Send</button>
+				<div id="errorMessage" class="error-message"></div>
+		      <input id="username" type="text" placeholder="Your Name" >
+		      <input id="email" type="email" placeholder="Your Email" >
+		      <textarea id="message" placeholder="Your Message" ></textarea>
+		      <button id="contacts__btn" type="submit">Send message</button>
 		    </form>
 	   </div>
 		<div class="footer__copyright">Copyright © Eleonora Kopiika 2025</div>
