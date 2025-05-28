@@ -248,9 +248,6 @@ document.addEventListener('click', (event) => {
 			errorMessage.classList.remove("show");
 		}, 3000);
 
-		setTimeout(() => {
-			errorMessage.classList.remove("show");
-		}, 3000);
 	} else {
 		errorMessage.classList.remove("show");
 	}

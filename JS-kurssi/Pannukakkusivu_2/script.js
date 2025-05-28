@@ -61,10 +61,11 @@ function updatePrice() {
   //Number(extra.dataset.price) — перетворюємо ціну, що зберігається в атрибуті data-price цього чекбокса, на число і додаємо її до price.
 
   // Додаємо клас для анімації
-  totalPrice.classList.add('price-change');
-  totalPriceDisplay.classList.add('price-change');
   totalPrice.textContent = `${price}€`;
   totalPriceDisplay.textContent = `${price}€`;
+  totalPrice.classList.add('price-change');
+  totalPriceDisplay.classList.add('price-change');
+  
 
   // Після анімації видаляємо клас
   setTimeout(() => {
@@ -102,12 +103,12 @@ document.getElementById('seeOrder').addEventListener('click', () => {
   const price = totalPrice.textContent;
 
   modalSummaryText.innerHTML = `
-    <strong>Nimi:</strong> ${name}<br>
-    <strong>Pannukakun tyyppi:</strong> ${pancake}<br>
-    <strong>Täytteet:</strong> ${toppings.join(', ') || 'ei'}<br>
-    <strong>Lisukkeet:</strong> ${extras.join(', ') || 'ei'}<br>
-    <strong>Toimitustap:</strong> ${delivery}<br>
-    <strong>Kokonaishinta:</strong> ${price}
+    <p><strong>Nimi:</strong> ${name}</p>
+    <p><strong>Pannukakun tyyppi:</strong> ${pancake}</p>
+    <p> <strong>Täytteet:</strong> ${toppings.join(', ') || 'ei'}</p>
+    <p><strong>Lisukkeet:</strong> ${extras.join(', ') || 'ei'}</p>
+    <p><strong>Toimitustap:</strong> ${delivery}</p>
+    <p><strong>Kokonaishinta:</strong> ${price}</p>
   `;
 
   // Показати модальне вікно

@@ -1,3 +1,22 @@
+const correctPassword = 12345;
+
+function checkPassword (){
+	const passwordInput = document.getElementById("passwordInput").value;
+	const errorMessage = document.getElementById("errorMessage");
+	if (parseInt(passwordInput) === correctPassword) {
+		// Якщо пароль вірний, ховаємо модальне вікно та показуємо форму
+		document.getElementById("passwordModal").style.display = "none";
+		document.getElementById("ordersDashboard").style.display = "block";
+  } else {
+		// Якщо пароль невірний, виводимо помилку
+		errorMessage.textContent = "Väärä salasana. Yritä uudelleen.";
+		errorMessage.classList.add("show");
+		setTimeout(() => {
+			errorMessage.classList.remove("show");
+		}, 3000);
+  }
+}
+
 
 document.addEventListener('DOMContentLoaded', () => {
 	const container = document.getElementById('ordersContainer');

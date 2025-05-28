@@ -7,14 +7,26 @@
 	<title>Kaikki tilaukset</title>
 </head>
 <body>
-	<main class="page">
-		<h1>Kaikki tilaukset</h1>
-		<div class="sort-orders__section">
-			<input id="search-field" type="search" placeholder="Etsi tilaus nimellä">
-			<button id="sort_btn" type="submit">Järjestä</button>
+	<main>
+		<!-- Модальне вікно для введення пароля -->
+		<div id="passwordModal" class="modal">
+			<div class="modal-content">
+				<h2>Syötä salasana</h2>
+				<p id="errorMessage" class="error-message"></p>
+				<input type="password" id="passwordInput" placeholder="Salasana">
+				<button onclick="checkPassword()">Vahvista</button>
+			</div>
 		</div>
 
-	  <div id="ordersContainer"></div>
+		<div class="page" id="ordersDashboard">
+			<h1>Kaikki tilaukset</h1>
+			<div class="sort-orders__section">
+				<input id="search-field" type="search" placeholder="Etsi tilaus nimellä" aria-label="Hae tilausta nimen perusteella">
+				<button id="sort_btn" type="submit">Järjestä</button>
+			</div>
+	
+		  <div id="ordersContainer"></div>
+		</div>
 	</main>
 
   <script src="orders.js"></script>

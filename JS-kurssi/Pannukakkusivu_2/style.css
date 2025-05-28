@@ -1,25 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap');
 
+@import url(reset.css);
+
 body {
 	background-color: #ffffff;
 	color: rgb(63, 137, 139);
+	font-family: 'Quicksand', sans-serif;
+	font-size: 1.1rem;
+ }
+
+ .container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin: 0;
-	min-height: 100vh;
-	/* overflow: hidden; */
-	font-family: 'Quicksand', sans-serif;
-	font-size: 1.2rem;
- }
- 
- .container {
-	display: flex;
-	/* align-items: flex-start;
-	justify-content: center; */
 	width: 100vw;
+	min-height: 100vh;
  }
- 
+
  .image-container {
 	position: fixed;
 	top: 0;
@@ -34,19 +31,7 @@ body {
 	width: 100%;
 	height: 100%;
  }
- 
- .form-container {
-	flex: 1;
-	padding: 0 50px 50px 50px;
-	height: 100vh;
-	overflow-y: auto;
-	margin-left: 50vw;
-	width: 50vw;
-	z-index: 2;
-	box-sizing: border-box;
-	position: relative;	
- }
- 
+
  .price-banner {
 	position: absolute;
 	top: 20px;
@@ -62,41 +47,80 @@ body {
 	font-size: 20px;
  }
  
- h3 {
-	margin-top: 15px;
+ .form-container {
+	flex: 1;
+	padding: 50px;
+	height: 100vh;
+	overflow-y: auto;
+	margin-left: 50vw;
+	width: 50vw;
+	z-index: 2;
+	position: relative;	
  }
  
+ #pancakeForm{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+ }
 
  input[type="checkbox"] {
 	margin-right: 5px;
  }
  
+ h2{
+	font-size: 1.4rem;
+	font-weight: 600;
+	margin-bottom: 20px;
+ }
+
+ h3 {
+	font-size: 1.2rem;
+	font-weight: 600;
+ }
+
+ #customerName{
+	font-size: 1rem;
+	padding: 7px;
+	border-radius: 7px;
+	border: 1.5px solid #ccc;
+	max-width: 250px;
+	
+}
+
+ #customerNameCheck {
+	transition: opacity 0.5s ease;
+	opacity: 1;
+	color: red;
+ }
+
+#type{
+	font-size: 1rem;
+	padding: 7px;
+	border-radius: 7px;
+	border: 1.5px solid #ccc;
+	max-width: 150px;
+}
+
  select,
  label {
 	display: block;
-	margin-top: 10px;
 	color: rgb(63, 137, 139);
+	
  }
 
- .price-change {
-	animation: elegantFade 0.6s ease;
-	box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
-	border-radius: 8px;
+ #totalPriceDisplay,
+ #totalPrice{
+	transition: all 0.5s ease;
+	font-weight: 600;
  }
- 
- @keyframes elegantFade {
-	0% {
-	  transform: scale(1);
-	  opacity: 1;
-	}
-	40% {
-	  transform: scale(1.2);
-	  opacity: 0.85;
-	}
-	100% {
-	  transform: scale(1);
-	  opacity: 1;
-	}
+
+ #totalPriceDisplay.price-change{
+	color: #d17b49;
+ }
+
+ #totalPrice.price-change {
+	transform: scale(1.8);
  }
 
  #seeOrder,
@@ -106,10 +130,11 @@ body {
 	background-color: rgb(63, 137, 139);
 	font-weight: 600;
 	display: inline-block;
-	padding: 20px;
+	padding: 10px 20px;
 	border-radius: 10px;
 	border: none;
 	font-size: 18px;
+	transition: background-color 0.3s ease, transform 0.2s ease;
 	cursor: pointer;
  }
 
@@ -119,31 +144,25 @@ body {
  #confirmOrder:hover{
 	background-color: #f49660;
  }
- 
 
- #customerNameCheck {
-	transition: opacity 0.5s ease;
-	opacity: 1;
-	color: red;
-	margin-top: 5px;
+ #seeOrder{
+	max-width: 250px;
+	margin-top: 20px;
  }
 
  #seeOrder:hover,
  #editOrder:hover{
 	background-color: rgb(81, 161, 164);
-	transition: all 0.2s;
  }
 
  #seeOrder:active,
  #editOrder:active{
-	background-color: #d17b49;
-	box-shadow: none;
+	transform: scale(0.95);
  }
 
-
- /* Модальне вікно */
+ /* Modal window */
 .modal {
-	display: none; /* Початково приховане */
+	display: none;
 	position: fixed;
 	z-index: 9999;
 	left: 0;
@@ -151,22 +170,28 @@ body {
 	width: 100%;
 	height: 100%;
 	overflow: auto;
-	background-color: rgba(0,0,0,0.5); /* затемнення фону */
+	background-color: rgba(0,0,0,0.5);
  }
  
- /* Контент модального вікна */
  .modal-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
 	background-color: #fefefe;
 	margin: 10% auto;
 	padding: 20px;
 	border-radius: 8px;
 	width: 80%;
-	max-width: 500px;
-	text-align: center;
+	max-width: 400px;
 	position: relative;
  }
- 
- /* Хрестик закриття */
+
+ .modal-content p:not(:last-child){
+	margin-bottom: 10px;
+ }
+
+ /* Close modal window */
  .close {
 	position: absolute;
 	right: 15px;
@@ -175,11 +200,56 @@ body {
 	font-weight: bold;
 	cursor: pointer;
  }
- 
- /* Кнопки в модальному вікні */
- .modal-buttons {
-	margin-top: 20px;
+
+ .modal-buttons{
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	justify-content: center;
  }
+
+
+ @media (max-width: 768px) {
+	.container {
+	  flex-direction: column;
+	  align-items: stretch;
+	  min-height: auto;
+	}
+ 
+	.image-container {
+	  position: relative;
+	  width: 100vw;
+	  height: 40vh;
+	}
+
+	.image-container img {
+		object-fit: cover;
+		width: 100%;
+		height: 100%;
+	 }
+ 
+	.form-container {
+	  display: flex;
+ 	  flex-direction: column;
+ 	  align-items: center;
+	  margin-left: 0;
+	  width: 100vw;
+	  height: auto;
+	  overflow-y: visible;
+	  padding: 30px 20px;
+	}
+ 
+	.price-banner {
+	  width: 80px;
+	  height: 80px;
+	  font-size: 16px;
+	  top: 10px;
+	  right: 10px;
+	}
+ 
+	
+ }
+ 
  
 
 
