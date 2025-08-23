@@ -35,7 +35,7 @@
  }
  /* ______________________________________ */
 
-/* Модальне вікно */
+/* Modal window */
 .modal {
 	display: flex;
 	justify-content: center;
@@ -123,14 +123,14 @@
 .output__section {
     margin-bottom: 20px;
 	 display: flex;
-	 gap: 10px; /* Відстань між input і button */
+	 gap: 10px; 
 }
 
 .input__section input,
 .output__section input,
 .input__section button,
 .output__section button {
-	height: 44px; /* Однакова висота */
+	height: 44px; 
 	font-size: 1rem;
 }
 
@@ -151,7 +151,7 @@
 }
 
  button{
-	padding: 0 20px;/* не задаємо вертикальний padding, щоб height працював */
+	padding: 0 20px;
 	text-transform: uppercase;
 	font-size: 1rem;
 	font-weight: 500;

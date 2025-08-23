@@ -4,11 +4,11 @@ function checkPassword (){
 	const passwordInput = document.getElementById("passwordInput").value;
 	const errorMessage = document.getElementById("error-message");
 	if (parseInt(passwordInput) === correctPassword) {
-		// Якщо пароль вірний, ховаємо модальне вікно та показуємо форму
+		// If the password is correct, hide the modal window and show the form
 		document.getElementById("passwordModal").style.display = "none";
 		document.getElementById("bankApp").style.display = "block";
   } else {
-		// Якщо пароль невірний, виводимо помилку
+		// If the password is incorrect, we display an error
 		errorMessage.textContent = "Väärä PIN-koodi. Yritä uudelleen.";
   }
 }
@@ -16,8 +16,7 @@ function checkPassword (){
 
 let balance = 0;
 
-
-// Функція для оновлення балансу на сторінці
+// Function to update balance on the page
 function updateBalance () {
 	document.getElementById("balanceAmount").textContent = balance;
 }
