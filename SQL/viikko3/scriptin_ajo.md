@@ -1,14 +1,15 @@
 # scriptin ajo
 
 ```shell
-mysql -u admin -p <henkiloLuontilauseet.sql
+mysql -u admin1 -p <henkiloLuontilauseet.sql
 ```
 
 ```shell
-mysql -u admin -p <./viikko3/henkiloLuontilauseet.sql
+mysql -u admin1 -p <./viikko3/henkiloLuontilauseet.sql
 ```
+
+jos polussa tai tiedoston nimessä on välilyöntejä, tarvitaan lainausmerkit "
 
 ```shell
-mysql -u admin -p <"home/matti/sql lauseet/henkilon Luontilauseet.sql"
+mysql -u admin1 -p <"/home/matti/sql lauseet/henkilon Luontilauseet.sql"
 ```
-
