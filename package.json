@@ -1,0 +1,23 @@
+{
+  "name": "bussines_college",
+  "version": "1.0.0",
+  "description": "Welcome to my study repo — it’s where I collected all the stuff we did in class and during self-study at Business College.   You'll find folders for HTML, JavaScript, SQL, React, my portfolio, and more. It's been super helpful to keep everything organized in one place!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kopiika/Bussines_College.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kopiika/Bussines_College/issues"
+  },
+  "homepage": "https://github.com/Kopiika/Bussines_College#readme",
+  "dependencies": {
+    "mariadb": "^3.4.5"
+  }
+}

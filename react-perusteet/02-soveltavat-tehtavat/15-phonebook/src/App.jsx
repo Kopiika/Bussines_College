@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 const Person = ({ person }) => {
   return <li>{person.name} {person.phoneNumber}</li>
@@ -40,21 +41,27 @@ const PersonsList = ({persons})=>{
 
 
 const App = () => {
-  const [persons, setPersons] = useState([
-    { name: 'Arto Hellas', phoneNumber: '040-123456', id: 1 },
-    { name: 'Ada Lovelace', phoneNumber: '39-44-5323523', id: 2 },
-    { name: 'Dan Abramov', phoneNumber: '12-43-234345', id: 3 },
-    { name: 'Mary Poppendieck', phoneNumber: '39-23-6423122', id: 4 }
-  ]) 
+  const [persons, setPersons] = useState([]) 
   const [newName, setNewName] = useState('')
   const [newPhoneNumber, setNewPhoneNumber] = useState('')
   const [filterText, setFilterText] = useState('')
+
+  /*useEffect to load initial data from the server*/
+  useEffect(()=>{
+    axios.get('http://localhost:3001/persons')
+    .then(response =>{
+      setPersons(response.data)
+    })
+    .catch(error => {
+      console.log('Error fetching data:', error)
+    })
+  }, [])
   
   const addPerson = (event) => {
     event.preventDefault()
     /*do not add an empty name*/ 
     if (!newName.trim() || !newPhoneNumber.trim()) {
-      alert(`You can not leave empty filds`)
+      alert(`You can not leave empty fields`)
       return
     }
 
