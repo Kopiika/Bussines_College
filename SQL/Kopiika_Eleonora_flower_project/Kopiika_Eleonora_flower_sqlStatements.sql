@@ -1,4 +1,6 @@
 use flowerdb;
+show tables;
+
 /* Select all data */
 select * from flower;
 /* Delete all data (test) from the flower table */

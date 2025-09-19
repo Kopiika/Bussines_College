@@ -18,9 +18,9 @@ show databases;
 use flowerdb;
 show tables;
 
-drop user if exists 'roosa'@'localhost';
-create user 'roosa'@'localhost' identified by '1234';
-grant all privileges on flowerdb.* to 'roosa'@'localhost';
+drop user if exists 'olivia'@'localhost';
+create user 'olivia'@'localhost' identified by 'pzbceIXG';
+grant all privileges on flowerdb.* to 'olivia'@'localhost';
 
 
 
