@@ -1,54 +1,19 @@
 import { useEffect, useState } from 'react'
 import personServices  from './services/persons'
+import './index.css'
+import Filter from './components/Filter'
+import PersonForm from './components/PersonForm'
+import PersonsList from './components/PersonsList'
+import Notification from './components/Notification'
 
-const Person = ({ person, removePerson }) => {
-  return (
-  <li>
-  {person.name} {person.phoneNumber} 
-  <button onClick={() => removePerson(person.id)}>delete</button>
-  </li>
-)}
-
-const Filter =({filterText, handleFilterTextChange}) =>{
-  return (
-    <div>
-        filter shown with: <input value={filterText} onChange={handleFilterTextChange}/>
-    </div>
-  )
-}
-
-const PersonForm = ({addPerson,newName,handleNameChange,newPhoneNumber,handlePhoneNumberChange}) => {
-  return (
-    <form onSubmit={addPerson}>
-        <div>
-          name: <input value={newName} onChange={handleNameChange}/>
-        </div>
-        <div>
-          number: <input value={newPhoneNumber} onChange={handlePhoneNumberChange}/>
-        </div>
-        <div>
-          <button type="submit">add</button>
-        </div>
-      </form>
-  )
-}
-
-const PersonsList = ({persons, removePerson})=>{
-  return (
-    <ul>
-        {persons.map((person) => (
-          <Person key={person.id} person={person} removePerson={removePerson} />
-        ))}
-    </ul>
-  )
-}
-
+/* Main App component */
 
 const App = () => {
   const [persons, setPersons] = useState([]) 
   const [newName, setNewName] = useState('')
-  const [newPhoneNumber, setNewPhoneNumber] = useState('')
+  const [newNumber, setNewNumber] = useState('')
   const [filterText, setFilterText] = useState('')
+  const [notification, setNotification] = useState({message: null, type: ''})
 
   /*useEffect to load initial data from the server*/
   useEffect(()=>{
@@ -56,52 +21,90 @@ const App = () => {
     .getAll()
     .then(initialPersons => {setPersons(initialPersons)})
     .catch(error => {
-      console.log('Error fetching data:', error)
+      setNotification({
+          type: 'error',
+          message: `Failed to fetch initial data from server`
+      })
+      setTimeout(() => {
+        setNotification({ message: null, type: '' })
+      }, 5000)
     })
   }, [])
   
+  /* Function to add a new person or update an existing person's number */
   const addPerson = (event) => {
     event.preventDefault()
     /*do not add an empty name*/ 
-    if (!newName.trim() || !newPhoneNumber.trim()) {
-      alert(`You can not leave empty fields`)
+    if (!newName.trim() || !newNumber.trim()) {
+      setNotification({
+        type: 'error',
+        message: `You can not leave empty fields`
+      })
+      setTimeout(() => {
+        setNotification({ message: null, type: '' })
+      }, 5000)  
       return
     }
-
+    /* Check if the person already exists */
     const existingPerson = persons.find(person=>person.name===newName)
     if(existingPerson){
       if (window.confirm(`${existingPerson.name} is already added to phonebook, replace the old number with a new one?`)){
-        const updatedPerson = {...existingPerson, phoneNumber: newPhoneNumber}
-      
+        /* Create an updated person object with the new number */
+        const updatedPerson = {...existingPerson, number: newNumber}
+
+      /* Update the person's number on the server */
       personServices
         .update(existingPerson.id , updatedPerson)
         .then(returnedPerson => {
           setPersons(persons.map(person => person.id !== existingPerson.id ? person : returnedPerson))
           setNewName('')
-          setNewPhoneNumber('')
+          setNewNumber('')
+          setNotification({
+            message: `${returnedPerson.name} number is updated`,
+            type: 'success'
+          })
+          setTimeout(() => {
+            setNotification({ message: null, type: '' })
+          }, 5000)
         })
         .catch(error => {
-          console.error("Error updating person:", error)
+          setNotification({
+              type: 'error',
+              message: `Information of '${existingPerson.name}' has already been removed from server`
+          })
+          setTimeout(() => {
+            setNotification({ message: null, type: '' })
+          }, 5000)  
+          setPersons(persons.filter(n => n.id !== existingPerson.id))
         })
       } 
       return
     }
-
+    /* Create a new person object */
     const personObject = {
       name: newName,
-      phoneNumber: newPhoneNumber,
+      number: newNumber,
       id: String(persons.length + 1),
     }
     
     personServices
       .create(personObject)
       .then(returnedPerson => {
+        console.log('Returned from server:', returnedPerson)
         setPersons(persons.concat(returnedPerson))
         setNewName('')
-        setNewPhoneNumber('')
+        setNewNumber('')
+        setNotification({
+          message: `${returnedPerson.name} is added to the phonebook`,
+          type: 'success'
+        })
+        setTimeout(() => {
+          setNotification({ message: null, type: '' })
+        }, 5000)
       })
   }
 
+  /* Function to remove a person by id */
   const removePerson = (id) =>{
     /* Find a person by id */
     const person = persons.find(person => person.id === id)
@@ -112,10 +115,25 @@ const App = () => {
         .then(() => {
           /* Updating the status (create a new array without the deleted person) */
           setPersons(persons.filter(p=> p.id !== id))
+          setNotification({
+            message: `${person.name} is removed from the phonebook`,
+            type: 'success'
+          })
+          setTimeout(() => {
+            setNotification({ message: null, type: '' })
+          }, 5000)
         })
         .catch(error => {
-          console.error("Error deleting person:", error)
+          setNotification({
+            type: 'error',
+            message:`Persone '${person.name}' has already been removed from server`
+          })
+          setTimeout(() => {
+            setNotification({ message: null, type: '' })
+          }, 5000)  
+          setPersons(persons.filter(n => n.id !== id))
         })
+        
     }
   }
 
@@ -123,8 +141,8 @@ const App = () => {
     setNewName(event.target.value)
   }
 
-  const handlePhoneNumberChange = (event) => {
-    setNewPhoneNumber(event.target.value)
+  const handleNumberChange = (event) => {
+    setNewNumber(event.target.value)
   }
 
   const handleFilterTextChange = (event) =>{
@@ -136,20 +154,23 @@ const App = () => {
 
 
   return (
-    <div>
-      <h2>Phonebook</h2>
-      <Filter filterText={filterText} handleFilterTextChange={handleFilterTextChange}/>
-      <h2>Add a new</h2>
-      <PersonForm
-        addPerson={addPerson}
-        newName={newName}
-        handleNameChange={handleNameChange}
-        newPhoneNumber={newPhoneNumber}
-        handlePhoneNumberChange={handlePhoneNumberChange}
-      />
-      <h2>Numbers</h2>
-      <PersonsList persons={personsToShow} removePerson={removePerson}/>
-    </div>
+    <>
+      <div className='mainContainer'>
+        <h1>Phonebook</h1>
+        <Notification notification={notification} />
+        <Filter filterText={filterText} handleFilterTextChange={handleFilterTextChange}/>
+        <h2>Add a new</h2>
+        <PersonForm
+          addPerson={addPerson}
+          newName={newName}
+          handleNameChange={handleNameChange}
+          newNumber={newNumber}
+          handleNumberChange={handleNumberChange}
+        />
+        <h2>Numbers</h2>
+        <PersonsList persons={personsToShow} removePerson={removePerson}/>
+      </div>
+    </>
   )
 }
 

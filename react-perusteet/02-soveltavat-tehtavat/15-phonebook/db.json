@@ -23,7 +23,12 @@
     {
       "id": "5",
       "name": "Maria Link",
-      "phoneNumber": "3435675834"
+      "number": "45667899643"
+    },
+    {
+      "id": "6",
+      "name": "Anna Shitikova",
+      "number": "3453547674"
     }
   ]
 }
