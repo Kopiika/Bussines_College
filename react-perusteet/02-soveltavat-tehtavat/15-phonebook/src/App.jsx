@@ -34,7 +34,7 @@ const App = () => {
   /* Function to add a new person or update an existing person's number */
   const addPerson = (event) => {
     event.preventDefault()
-    /*do not add an empty name*/ 
+    /* do not add an empty name */ 
     if (!newName.trim() || !newNumber.trim()) {
       setNotification({
         type: 'error',
