@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
+import './index.css'
 
 
 /* Filter component to filter the list of persons */
@@ -32,17 +33,22 @@ const Country = ({ country }) => {
   return (
     <div className='countryCard'>
       <h3>{country.name.common}</h3>
-      <p>Capital: {country.capital?.[0]}</p>
-      <p>Area: {country.area} km²</p>
-      <p>Population: {country.population}</p>
-      <p>Languages: {Object.values(country.languages).join(', ')}</p>
-      <img src={country.flags.png} alt={`Flag of ${country.name.common}`} width="150" />
-
+      <div className="countryInfo">
+        <div className="countryDetails">
+          <p><span>Capital:</span> {country.capital?.[0]}</p>
+          <p><span>Area:</span> {country.area} km²</p>
+          <p><span>Population:</span> {country.population}</p>
+          <p><span>Languages:</span> {Object.values(country.languages).join(', ')}</p>
+        </div>
+        <div className="flagContainer">
+          <img src={country.flags.png} alt={`Flag of ${country.name.common}`} width="150" className="flagImage"/>
+        </div>
+      </div>
       {weather && (
         <div className="weatherInfo">
           <h4>Weather in {country.capital[0]}</h4>
-          <p>Temperature: {weather.main.temp} °C</p>
-          <p>Wind: {weather.wind.speed} m/s</p>
+          <p><span>Temperature:</span> {weather.main.temp} °C</p>
+          <p><span>Wind:</span> {weather.wind.speed} m/s</p>
           <img 
             src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`} 
             alt={weather.weather[0].description} 
@@ -64,7 +70,7 @@ const CountriesList = ({ countries, shownCountry, handleShowCountry }) => {
   }
   if (countries.length === 1) {
     return (
-      <div className='countriesList'>
+      <div className='countriesListContainer'>
         {countries.map((country) => (
           <Country key={country.cca3} country={country} />))}
       </div>
@@ -118,14 +124,15 @@ const App = () => {
 
     return (
     <>
-      <h2>Data of Countries</h2>
+    <div className="mainContainer">
+      <h1>Data of Countries</h1>
       <Filter filterText={filterText} handleFilterTextChange={handleFilterTextChange} />
       {filterText && <CountriesList 
           countries={filteredCountries} 
           handleShowCountry={handleShowCountry} 
           shownCountry={shownCountry}/>
       } 
-      
+    </div>  
     </>
   )
 }
