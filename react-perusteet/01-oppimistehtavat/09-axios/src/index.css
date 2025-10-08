@@ -1,0 +1,25 @@
+.food-card {
+  height: 230px;
+  width: 255px;
+  background-color: #262626;
+  display: flex;
+  flex-direction: column;
+  justify-content: top;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.food-card img{
+  width: 100%;
+  height: auto;
+  border-radius: 10px 10px 0 0;
+}
+
+.food-card .food-info{
+  flex: 1;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  padding: 10px;
+  color: white;
+}
